@@ -4,6 +4,7 @@ import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
 import { Scheherazade_New } from "next/font/google";
+import Link from "next/link";
 
 const font = Scheherazade_New({
   subsets: ["latin"],
@@ -134,9 +135,11 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  <button className="btn btn-accent max-w-37 w-full mt-auto max-md:mt-14">
-                    Explore
-                  </button>
+                  <Link href="/packages/foo" className="mt-auto max-md:mt-14">
+                    <button className="btn btn-accent max-w-37 w-full">
+                      Explore
+                    </button>
+                  </Link>
                 </li>
               ))}
             </ul>
