@@ -3,6 +3,12 @@ import sample from "@/assets/images/hero.png";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
+import { Scheherazade_New } from "next/font/google";
+
+const font = Scheherazade_New({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
 
 const groups = [
   {
@@ -91,10 +97,14 @@ export default function Home() {
       <Hero />
 
       <section className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold mb-14 mt-20">Our Packages</h2>
+        <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
+          Our Packages
+        </h2>
         {groups.map((group) => (
           <div key={group.title} className="mb-16">
-            <h3 className="text-xl font-medium mt-14 mb-8">{group.title}</h3>
+            <h3 className={`text-xl font-medium mt-14 mb-8 ${font.className}`}>
+              {group.title}
+            </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {group.packages.map((pkg) => (
                 <li className="card max-w-full flex flex-col" key={pkg.title}>
