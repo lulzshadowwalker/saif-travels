@@ -624,6 +624,12 @@
         background-size: 400% 400%;
         animation: gradient-shift 15s ease infinite;
     }
+
+    .card {
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 1px 6px 8.6px 0 rgba(0, 0, 0, 0.27);
+    }
 }
 
 @keyframes gradient-shift {
