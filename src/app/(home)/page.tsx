@@ -2,6 +2,7 @@ import { Hero } from "./components/hero";
 import sample from "@/assets/images/hero.png";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
+import { Cta } from "./components/cta";
 
 const groups = [
   {
@@ -132,6 +133,8 @@ export default function Home() {
           </div>
         ))}
       </section>
+
+      <Cta />
     </main>
   );
 }
