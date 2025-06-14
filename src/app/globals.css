@@ -22,6 +22,19 @@
     --color-primary-900: oklch(50% 0 0);
     --color-primary-950: oklch(40% 0 0);
 
+    --color-primary-content: oklch(0% 0 none);
+    --color-primary-content-50: oklch(47.478% 0 none);
+    --color-primary-content-100: oklch(43.86% 0 none);
+    --color-primary-content-200: oklch(36.002% 0 none);
+    --color-primary-content-300: oklch(28.094% 0 none);
+    --color-primary-content-400: oklch(19.125% 0 none);
+    --color-primary-content-500: oklch(0% 0 none);
+    --color-primary-content-600: oklch(0% 0 none);
+    --color-primary-content-700: oklch(0% 0 none);
+    --color-primary-content-800: oklch(0% 0 none);
+    --color-primary-content-900: oklch(0% 0 none);
+    --color-primary-content-950: oklch(0% 0 none);
+
     /* Secondary (#F6F6F6) */
     --color-secondary: oklch(97.5% 0.005 100); /* #F6F6F6 */
     --color-secondary-50: oklch(99% 0.005 100);
@@ -36,19 +49,32 @@
     --color-secondary-900: oklch(50% 0.005 100);
     --color-secondary-950: oklch(40% 0.005 100);
 
+    --color-secondary-content: oklch(0% 0 none);
+    --color-secondary-content-50: oklch(47.478% 0 none);
+    --color-secondary-content-100: oklch(43.86% 0 none);
+    --color-secondary-content-200: oklch(36.002% 0 none);
+    --color-secondary-content-300: oklch(28.094% 0 none);
+    --color-secondary-content-400: oklch(19.125% 0 none);
+    --color-secondary-content-500: oklch(0% 0 none);
+    --color-secondary-content-600: oklch(0% 0 none);
+    --color-secondary-content-700: oklch(0% 0 none);
+    --color-secondary-content-800: oklch(0% 0 none);
+    --color-secondary-content-900: oklch(0% 0 none);
+    --color-secondary-content-950: oklch(0% 0 none);
+
     /* Accent (#B53324) */
-    --color-accent: oklch(54% 0.19 29); /* #B53324 */
-    --color-accent-50: oklch(95% 0.03 29);
-    --color-accent-100: oklch(90% 0.06 29);
-    --color-accent-200: oklch(80% 0.1 29);
-    --color-accent-300: oklch(70% 0.14 29);
-    --color-accent-400: oklch(60% 0.17 29);
-    --color-accent-500: oklch(54% 0.19 29); /* #B53324 */
-    --color-accent-600: oklch(45% 0.18 29);
-    --color-accent-700: oklch(35% 0.15 29);
-    --color-accent-800: oklch(25% 0.11 29);
-    --color-accent-900: oklch(18% 0.08 29);
-    --color-accent-950: oklch(13% 0.05 29);
+    --color-accent: oklch(60.687% 0.10285 106.43);
+    --color-accent-50: oklch(86.678% 0.0757 106.22);
+    --color-accent-100: oklch(84.745% 0.0868 105.93);
+    --color-accent-200: oklch(80.539% 0.10544 106.12);
+    --color-accent-300: oklch(76.643% 0.1234 106.36);
+    --color-accent-400: oklch(69.934% 0.12057 106.95);
+    --color-accent-500: oklch(60.687% 0.10285 106.43);
+    --color-accent-600: oklch(47.444% 0.07905 107.22);
+    --color-accent-700: oklch(33.044% 0.05052 105.7);
+    --color-accent-800: oklch(16.948% 0.02023 108.38);
+    --color-accent-900: oklch(0% 0 none);
+    --color-accent-950: oklch(0% 0 none);
 
     /* Accent Alt (#A76D24) */
     --color-accent-alt: oklch(70% 0.13 75); /* #A76D24 */
