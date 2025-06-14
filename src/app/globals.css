@@ -596,22 +596,6 @@
         background: inherit;
     }
 
-    /* Enhanced card styles */
-    .card {
-        @apply bg-white rounded-xl border border-secondary-200 p-6;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow:
-            0 1px 3px rgba(0, 0, 0, 0.1),
-            0 1px 2px rgba(0, 0, 0, 0.06);
-    }
-
-    .card:hover {
-        transform: translateY(-2px);
-        box-shadow:
-            0 8px 25px rgba(0, 0, 0, 0.15),
-            0 3px 10px rgba(0, 0, 0, 0.1);
-    }
-
     /* Animated backgrounds for sections */
     .section-animated {
         background: linear-gradient(
@@ -629,6 +613,7 @@
         padding: 1rem;
         border-radius: 5px;
         box-shadow: 1px 6px 8.6px 0 rgba(0, 0, 0, 0.27);
+        max-width: 21.875rem;
     }
 }
 
@@ -672,5 +657,11 @@
         box-shadow:
             0 0 20px var(--color-accent-400),
             0 0 30px var(--color-accent-200);
+    }
+}
+
+@layer utilities {
+    .rounded-box {
+        border-radius: 5px;
     }
 }
