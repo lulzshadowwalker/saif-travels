@@ -16,6 +16,7 @@ const groups = [
     title: "Tranquil Connections",
     packages: [
       {
+        slug: "soft-beginning",
         title: "Soft Beginning",
         description:
           "Support newlyweds at the start of their relationship by giving them space for tranquility, understanding, and building a strong foundation together.",
@@ -23,13 +24,15 @@ const groups = [
         tags: ["#Nature", "#Yoga", "#Couples", "#Meditation", "#Honeymoon"],
       },
       {
+        slug: "horse-whispering",
         title: "Horse Whispering",
         description:
-          "Experience the unique art of connecting with horses while exploring Jordan’s stunning landscapes and rich history. This tour offers a special opportunity to bond with these majestic animals through tailored experiences.",
+          "Experience the unique art of connecting with horses while exploring Jordan's stunning landscapes and rich history. This tour offers a special opportunity to bond with these majestic animals through tailored experiences.",
         locations: ["Amman", "Wadi Rum", "Petra"],
         tags: ["#Adventure", "#Culture", "#Explore"],
       },
       {
+        slug: "peace-and-quiet",
         title: "Peace and Quiet",
         description:
           "Enter a state of deep meditation, aiming to free oneself from noise and disconnect from the world.",
@@ -42,6 +45,7 @@ const groups = [
     title: "Inner Transformation",
     packages: [
       {
+        slug: "renewal",
         title: "Renewal",
         description:
           "Rejuvenate the body and mind, detoxify, and restore energy and vitality.",
@@ -49,6 +53,7 @@ const groups = [
         tags: ["#Renewal", "#Detox", "#Wellness"],
       },
       {
+        slug: "turning-point",
         title: "Turning Point",
         description:
           "Support transitioning from a difficult life stage or major decision (e.g., divorce, loss, career change).",
@@ -56,11 +61,20 @@ const groups = [
         tags: ["#Healing", "#Support", "#Transformation"],
       },
       {
+        slug: "the-body-knows",
         title: "The Body Knows",
         description:
           "Reconnect with the body, understand its signals, and heal the relationship with it.",
         locations: ["Madaba", "Dead Sea", "Dibeen"],
         tags: ["#Healing", "#Wellness", "#BodyAwareness"],
+      },
+      {
+        slug: "iv-drip-therapy",
+        title: "IV Drip Therapy",
+        description:
+          "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
+        locations: ["Petra", "Dead Sea", "Wadi Rum"],
+        tags: ["#Wellness", "#Therapy", "#IVDrip"],
       },
     ],
   },
@@ -68,6 +82,7 @@ const groups = [
     title: "Personal Empowerment",
     packages: [
       {
+        slug: "safe-space",
         title: "Safe Space",
         description:
           "Provide a safe and supportive space for women/men to express, heal, and rebuild.",
@@ -75,6 +90,7 @@ const groups = [
         tags: ["#SafeSpace", "#Healing", "#Support"],
       },
       {
+        slug: "together",
         title: "Together",
         description:
           "A healing journey for couples (romantic, friends, life partners) to strengthen bonds and reconnect authentically.",
@@ -82,6 +98,7 @@ const groups = [
         tags: ["#Couples", "#Healing", "#Connection"],
       },
       {
+        slug: "i-discover-myself",
         title: "I Discover Myself",
         description:
           "Support youth and teenagers in exploring their identity, building self-confidence, and fostering a sense of belonging.",
@@ -135,7 +152,10 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  <Link href="/packages/foo" className="mt-auto max-md:mt-14">
+                  <Link
+                    href={`/packages/${pkg.slug}`}
+                    className="mt-auto max-md:mt-14"
+                  >
                     <button className="btn btn-accent max-w-37 w-full">
                       Explore
                     </button>
