@@ -16,12 +16,12 @@ const groups = [
     title: "Tranquil Connections",
     packages: [
       {
-        slug: "soft-beginning",
-        title: "Soft Beginning",
+        slug: "iv-drip-therapy",
+        title: "IV Drip Therapy",
         description:
-          "Support newlyweds at the start of their relationship by giving them space for tranquility, understanding, and building a strong foundation together.",
-        locations: ["Ajloun", "Dead Sea", "Wadi Rum"],
-        tags: ["#Nature", "#Yoga", "#Couples", "#Meditation", "#Honeymoon"],
+          "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
+        locations: ["Petra", "Dead Sea", "Wadi Rum"],
+        tags: ["#Wellness", "#Therapy", "#IVDrip"],
       },
       {
         slug: "horse-whispering",
@@ -67,14 +67,6 @@ const groups = [
           "Reconnect with the body, understand its signals, and heal the relationship with it.",
         locations: ["Madaba", "Dead Sea", "Dibeen"],
         tags: ["#Healing", "#Wellness", "#BodyAwareness"],
-      },
-      {
-        slug: "iv-drip-therapy",
-        title: "IV Drip Therapy",
-        description:
-          "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
-        locations: ["Petra", "Dead Sea", "Wadi Rum"],
-        tags: ["#Wellness", "#Therapy", "#IVDrip"],
       },
     ],
   },
