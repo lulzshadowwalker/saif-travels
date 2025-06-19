@@ -38,10 +38,10 @@ export function Footer() {
           <div className="mb-8 md:mb-0">
             <nav className="flex flex-col gap-4">
               <Link href="#" className="hover:underline transition">
-                About us
-              </Link>
-              <Link href="#" className="hover:underline transition">
                 How we work
+              </Link>
+              <Link href="/contact" className="hover:underline transition">
+                Contact Us
               </Link>
               <Link href="/faq" className="hover:underline transition">
                 Frequently Asked Questions
