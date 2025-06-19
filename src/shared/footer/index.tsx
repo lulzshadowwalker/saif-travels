@@ -43,6 +43,9 @@ export function Footer() {
               <Link href="#" className="hover:underline transition">
                 How we work
               </Link>
+              <Link href="/faq" className="hover:underline transition">
+                Frequently Asked Questions
+              </Link>
             </nav>
           </div>
 
