@@ -1,6 +1,5 @@
 import Image from "next/image";
-import hero from "@/assets/images/hero.png";
-import logo from "@/assets/images/logo-white.svg";
+import hero from "@/assets/images/about-hero.png";
 
 export function Hero() {
   return (

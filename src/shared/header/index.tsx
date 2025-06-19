@@ -9,11 +9,26 @@ import { Phone, Menu, X } from "lucide-react";
 type Props = {
   children?: React.ReactNode;
 };
+const groups = [
+  {
+    title: "Tranquil Connections",
+
+  },
+  {
+    title: "Inner Transformation",
+
+  },
+  {
+    title: "Personal Empowerment",
+
+  },
+] as const;
+
 
 const healingJourneys = [
-  { label: "Retreats", href: "/healing-journeys/retreats" },
-  { label: "Workshops", href: "/healing-journeys/workshops" },
-  { label: "1:1 Sessions", href: "/healing-journeys/sessions" },
+  { label: groups[0].title, href: "/#" + groups[0].title.replace(/\s+/g, "-").toLowerCase() },
+  { label: groups[1].title, href: "/#" + groups[1].title.replace(/\s+/g, "-").toLowerCase() },
+  { label: groups[2].title, href: "/#" + groups[2].title.replace(/\s+/g, "-").toLowerCase() },
 ];
 
 export function Header({ children }: Props) {
@@ -45,15 +60,15 @@ export function Header({ children }: Props) {
         <ul className="hidden md:flex items-center gap-8 mx-auto">
           <li>
             <Link
-              href="/about"
+              href="/"
               className="font-medium hover:underline transition"
             >
-              About us
+              Home
             </Link>
           </li>
           <li>
             <Link
-              href="/how-we-work"
+              href="/about"
               className="font-medium hover:underline transition"
             >
               How we work
