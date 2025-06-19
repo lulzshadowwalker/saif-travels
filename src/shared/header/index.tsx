@@ -12,23 +12,28 @@ type Props = {
 const groups = [
   {
     title: "Tranquil Connections",
-
   },
   {
     title: "Inner Transformation",
-
   },
   {
     title: "Personal Empowerment",
-
   },
 ] as const;
 
-
 const healingJourneys = [
-  { label: groups[0].title, href: "/#" + groups[0].title.replace(/\s+/g, "-").toLowerCase() },
-  { label: groups[1].title, href: "/#" + groups[1].title.replace(/\s+/g, "-").toLowerCase() },
-  { label: groups[2].title, href: "/#" + groups[2].title.replace(/\s+/g, "-").toLowerCase() },
+  {
+    label: groups[0].title,
+    href: "/#" + groups[0].title.replace(/\s+/g, "-").toLowerCase(),
+  },
+  {
+    label: groups[1].title,
+    href: "/#" + groups[1].title.replace(/\s+/g, "-").toLowerCase(),
+  },
+  {
+    label: groups[2].title,
+    href: "/#" + groups[2].title.replace(/\s+/g, "-").toLowerCase(),
+  },
 ];
 
 export function Header({ children }: Props) {
@@ -59,10 +64,7 @@ export function Header({ children }: Props) {
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8 mx-auto">
           <li>
-            <Link
-              href="/"
-              className="font-medium hover:underline transition"
-            >
+            <Link href="/" className="font-medium hover:underline transition">
               Home
             </Link>
           </li>
@@ -194,16 +196,16 @@ export function Header({ children }: Props) {
         <ul className="flex flex-col gap-2 px-4 py-6">
           <li>
             <Link
-              href="/about"
+              href="/"
               className="block py-2 font-medium rounded hover:bg-accent/20 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
-              About us
+              Home
             </Link>
           </li>
           <li>
             <Link
-              href="/how-we-work"
+              href="/about"
               className="block py-2 font-medium rounded hover:bg-accent/20 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -221,7 +223,9 @@ export function Header({ children }: Props) {
             >
               <span>Healing Journeys</span>
               <svg
-                className={`w-4 h-4 ml-2 transition-transform ${mobileDropdownOpen ? "rotate-180" : ""}`}
+                className={`w-4 h-4 ml-2 transition-transform ${
+                  mobileDropdownOpen ? "rotate-180" : ""
+                }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
