@@ -108,6 +108,43 @@ export default function Home() {
 
       <section className="container mx-auto px-4">
         <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
+          Our Services
+        </h2>
+
+        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {services().map(({ title, elements }) => (
+            <li key={title}>
+              <div className="relative py-6 px-3 rounded-box overflow-hidden group h-85">
+                {/* Background Image */}
+                <Image
+                  src={sample}
+                  alt="Hero Image"
+                  className="object-cover -z-20 group-hover:scale-[1.02] transition-transform duration-500 ease-in-out"
+                  fill
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 -z-10" />
+
+                <h3 className="text-2xl font-bold mb-6 text-primary max-md:text-lg">
+                  {title}
+                </h3>
+
+                <ul className="list-disc list-inside space-y-2 ps-4 max-md:space-y-0 max-md:ps-0">
+                  {elements.map((element, index) => (
+                    <li key={index} className="text-sm font-light text-primary max-md:text-xs">
+                      {element}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="container mx-auto px-4">
+        <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
           Our Packages
         </h2>
         {groups.map((group) => (
@@ -162,4 +199,43 @@ export default function Home() {
       <Cta />
     </main>
   );
+}
+
+function services() {
+  return [
+    {
+      title: "Travel Coordination & Welcome",
+      elements: [
+        "Full booking of flight tickets",
+        "VIP airport pick-up service with a private car",
+        "Internal transfers between all activities and sites included in the package",
+      ],
+    },
+    {
+      title: "Accommodation of Your Choice",
+      elements: [
+        "Luxury serviced apartments or boutique hotels",
+        "Private lodgings with a natural or rustic touch",
+        "Private or shared rooms arranged upon request",
+      ],
+    },
+    {
+      title: "Healing & Meditation Sessions",
+      elements: [
+        "Individual or group meditation sessions",
+        "Horse-guided intuitive (telepathy) experiences",
+        "Sound therapy, float therapy, Reiki, chakra work, and conscious breathing",
+        "Psychological support sessions with specialists, available upon request",
+      ],
+    },
+    {
+      title: "Authentic Nature Experience",
+      elements: [
+        "Mountain and desert excursions",
+        "Silent nights beneath the stars",
+        "Self-discovery activities, creative writing, and artistic workshops",
+        "Interaction with local communities and traditional culinary experiences",
+      ],
+    },
+  ];
 }
