@@ -22,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${tajawal.className} antialiased`}>
+      {/* <body className={`${tajawal.className} antialiased`}> */}
+      <body className={`antialiased`}>
         <Header />
         {children}
         <Footer />

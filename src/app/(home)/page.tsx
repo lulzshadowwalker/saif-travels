@@ -1,6 +1,6 @@
 import { Hero } from "./components/hero";
 import sample from "@/assets/images/hero.png";
-import { MapPin } from "lucide-react";
+import { Brain, Compass, Globe, MapPin, ScanHeart, TreeDeciduous } from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
 import { Scheherazade_New } from "next/font/google";
@@ -21,7 +21,12 @@ const groups = [
         description:
           "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
         locations: ["Petra", "Dead Sea", "Wadi Rum"],
-        tags: ["#Wellness", "#Therapy", "#IVDrip"],
+        tags: ["#Wellness", "#Therapy", "#IVDrip"], 
+        chips: [
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
+        ],
       },
       {
         slug: "horse-whispering",
@@ -30,6 +35,11 @@ const groups = [
           "Experience the unique art of connecting with horses while exploring Jordan's stunning landscapes and rich history. This tour offers a special opportunity to bond with these majestic animals through tailored experiences.",
         locations: ["Amman", "Wadi Rum", "Petra"],
         tags: ["#Adventure", "#Culture", "#Explore"],
+        chips: [
+          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          { name: "Explore", icon: Globe, iconColor: "#197CC3", color: "#B1E4FF" },
+        ],
       },
       {
         slug: "peace-and-quiet",
@@ -38,6 +48,10 @@ const groups = [
           "Enter a state of deep meditation, aiming to free oneself from noise and disconnect from the world.",
         locations: ["Remote Southern Areas", "Azraq Desert", "Wadi Rum"],
         tags: ["#Peace", "#Meditation", "#Desert"],
+        chips: [
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
     ],
   },
@@ -51,6 +65,10 @@ const groups = [
           "Rejuvenate the body and mind, detoxify, and restore energy and vitality.",
         locations: ["Wadi Zarqa Ma'in", "Dead Sea", "Wadi Rum"],
         tags: ["#Renewal", "#Detox", "#Wellness"],
+        chips: [
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
       {
         slug: "turning-point",
@@ -59,6 +77,10 @@ const groups = [
           "Support transitioning from a difficult life stage or major decision (e.g., divorce, loss, career change).",
         locations: ["Ajloun", "Umm Qais", "Wadi Al-Rayan"],
         tags: ["#Healing", "#Support", "#Transformation"],
+        chips: [
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
       {
         slug: "the-body-knows",
@@ -67,6 +89,10 @@ const groups = [
           "Reconnect with the body, understand its signals, and heal the relationship with it.",
         locations: ["Madaba", "Dead Sea", "Dibeen"],
         tags: ["#Healing", "#Wellness", "#BodyAwareness"],
+        chips: [
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
     ],
   },
@@ -80,6 +106,10 @@ const groups = [
           "Provide a safe and supportive space for women/men to express, heal, and rebuild.",
         locations: ["Al-Fuheis", "As-Salt", "Wadi Rum"],
         tags: ["#SafeSpace", "#Healing", "#Support"],
+        chips: [
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
       {
         slug: "together",
@@ -88,6 +118,11 @@ const groups = [
           "A healing journey for couples (romantic, friends, life partners) to strengthen bonds and reconnect authentically.",
         locations: ["Jerash", "Dead Sea", "Wadi Rum"],
         tags: ["#Couples", "#Healing", "#Connection"],
+        chips: [
+          { name: "Honeymoon", icon: ScanHeart, iconColor: "#D3388D", color: "#FFB5D3" },
+          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
       {
         slug: "i-discover-myself",
@@ -96,6 +131,11 @@ const groups = [
           "Support youth and teenagers in exploring their identity, building self-confidence, and fostering a sense of belonging.",
         locations: ["Ajloun", "Dead Sea", "Mujo"],
         tags: ["#Youth", "#Confidence", "#SelfDiscovery"],
+        chips: [
+          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
+          { name: "Explore", icon: Globe, iconColor: "#197CC3", color: "#B1E4FF" },
+          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+        ],
       },
     ],
   },
@@ -132,7 +172,10 @@ export default function Home() {
 
                 <ul className="list-disc list-inside space-y-2 ps-4 max-md:space-y-0 max-md:ps-0">
                   {elements.map((element, index) => (
-                    <li key={index} className="text-sm font-light text-primary max-md:text-xs">
+                    <li
+                      key={index}
+                      className="text-sm font-light text-primary max-md:text-xs"
+                    >
                       {element}
                     </li>
                   ))}
@@ -157,6 +200,24 @@ export default function Home() {
                 <li className="card max-w-full flex flex-col" key={pkg.title}>
                   <div className="relative h-45 rounded-box overflow-hidden">
                     <Image src={sample} alt="Hero Image" fill />
+
+                    <ul className="absolute bottom-2 start-2 flex gap-2">
+                      {pkg.chips.map((chip) => (
+                        <li
+                          key={chip.name}
+                          className="flex items-center justify-center gap-1 px-2 py-1 rounded-box"
+                          style={{ backgroundColor: chip.color }}
+                        >
+                          <chip.icon
+                            size={16}
+                            style={{ color: chip.iconColor }}
+                          />
+                          <span className="text-sm" style={{ color: chip.iconColor }}>
+                            {chip.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
                   <h4 className="text-2xl font-bold mt-6 mb-7">{pkg.title}</h4>
