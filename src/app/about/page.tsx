@@ -98,7 +98,7 @@ export default function About() {
   );
 }
 
-export function Cta() {
+function Cta() {
   return (
     <div className="h-[max(62dvh,500px)] relative">
       <Image
