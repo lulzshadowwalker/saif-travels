@@ -14,10 +14,10 @@ export function Hero() {
         sizes="100vw"
       />
 
-      <div className="absolute top-1/3 left-16 max-md:left-6 -translate-y-1/4 transform z-10">
+      <div className="absolute top-1/3 inset-x-0 -translate-y-1/4 transform z-10 container mx-auto px-4 flex flex-col items-start">
         <Image src={logo} alt="Logo" />
 
-        <button className="btn btn-accent mt-10 max-md:mt-5 w-full">
+        <button className="btn btn-accent mt-10 max-md:mt-5 max-w-60 w-full">
           Start your Journey
         </button>
       </div>

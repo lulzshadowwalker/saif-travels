@@ -13,11 +13,13 @@ export function Hero() {
         sizes="100vw"
       />
 
-      <div className="absolute top-1/3 left-16 max-md:left-6 -translate-y-1/4 transform z-10">
-        <h1 className="text-white text-[2.5rem] font-semibold mb-2">Recharge Your Body</h1>
+      <div className="absolute top-1/3 -translate-y-1/4 transform z-10 inset-x-0 flex flex-col items-start container mx-auto px-4">
+        <h1 className="text-white text-[2.5rem] font-semibold mb-2">
+          Recharge Your Body
+        </h1>
         <p className="text-white text-lg max-w-140">
-          Wellness IV Therapy in Jordan — Delivered by Licensed Experts.
-          Restore your energy & glow while enjoying your retreat.
+          Wellness IV Therapy in Jordan — Delivered by Licensed Experts. Restore
+          your energy & glow while enjoying your retreat.
         </p>
       </div>
 

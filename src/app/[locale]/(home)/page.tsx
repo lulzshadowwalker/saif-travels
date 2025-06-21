@@ -380,7 +380,7 @@ export default async function Home({
                       src={pkg.image}
                       alt="Package Image"
                       fill
-                      className="object-cover transition-all duration-500 ease-in-out hover:scale-[1.03]"
+                      className="object-cover transition-all duration-900 ease-in-out hover:scale-[1.03]"
                     />
 
                     <ul className="absolute bottom-2 start-2 flex gap-2">
