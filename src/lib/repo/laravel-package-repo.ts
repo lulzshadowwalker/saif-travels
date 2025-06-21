@@ -40,7 +40,7 @@ export class LaravelPackageRepo implements PackageRepo {
       throw new Error(`Failed to fetch package with slug ${slug}`);
     }
 
-    const packageData = await response.json();
+    const packageData = (await response.json()).data;
 
     return {
       name: packageData.attributes.name,
