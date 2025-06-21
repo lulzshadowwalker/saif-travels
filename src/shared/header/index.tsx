@@ -136,10 +136,16 @@ export function Header({ children }: Props) {
         {/* Request a Call button at the end */}
         <div className="flex-shrink-0 flex items-center gap-2">
           <div className="hidden md:flex">
-            <button className="btn btn-accent text-base font-semibold">
-              <Phone fill="currentColor" size={16} className="me-1" />
-              Request a Call
-            </button>
+            <a
+              href="https://calendly.com/saif-jo-2025/30min"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <button className="btn btn-accent text-base font-semibold">
+                <Phone fill="currentColor" size={16} className="me-1" />
+                Request a Call
+              </button>
+            </a>
           </div>
           {/* Hamburger for mobile - now at the right */}
           <button
@@ -266,13 +272,19 @@ export function Header({ children }: Props) {
           </li>
         </ul>
         <div className="px-4 mt-auto mb-6">
-          <button
-            className="btn btn-accent w-full text-base font-semibold flex items-center justify-center"
-            onClick={() => setMobileMenuOpen(false)}
+          <a
+            href="https://calendly.com/saif-jo-2025/30min"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Phone fill="currentColor" size={16} className="me-1" />
-            Request a Call
-          </button>
+            <button
+              className="btn btn-accent w-full text-base font-semibold flex items-center justify-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Phone fill="currentColor" size={16} className="me-1" />
+              Request a Call
+            </button>
+          </a>
         </div>
       </aside>
       {children}
