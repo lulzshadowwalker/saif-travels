@@ -1,3 +1,8 @@
+export type Retreat = {
+  name: string;
+  packages: Package[];
+};
+
 export type Package = {
   name: string;
   slug: string;
