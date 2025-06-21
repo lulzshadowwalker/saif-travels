@@ -5,3 +5,4 @@ export class PackageRepoFactory {
   static create(): PackageRepo {
     return new LaravelPackageRepo();
   }
+}

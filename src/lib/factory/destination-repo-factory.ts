@@ -5,3 +5,4 @@ export class DestinationRepoFactory {
   static create(): DestinationRepo {
     return new LaravelDestinationRepo();
   }
+}
