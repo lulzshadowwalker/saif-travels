@@ -17,17 +17,15 @@ export class PackageMapper {
       activities: data.attributes.activities,
       stay: data.attributes.stay,
       ivDrips: data.attributes.ivDrips,
-      destinations: (data.relationships.destinations?.data || []).map(
-        (dest) => ({
-          name: dest.attributes.name,
-          slug: dest.attributes.slug,
-          packagesCount: dest.meta?.packagesCount || 0,
-          images: MediaMapper.mapImages(
-            dest.relationships?.media?.images,
-            dest.attributes.name,
-          ),
-        }),
-      ),
+      destinations: (data.relationships.destinations || []).map((dest) => ({
+        name: dest.attributes.name,
+        slug: dest.attributes.slug,
+        packagesCount: dest.meta?.packagesCount || 0,
+        images: MediaMapper.mapImages(
+          dest.relationships?.media?.images,
+          dest.attributes.name,
+        ),
+      })),
       images: MediaMapper.mapImages(
         data.relationships.media?.images,
         packageName,

@@ -81,9 +81,7 @@ export interface PackageApiResource extends ApiResource {
     isActive: boolean;
   };
   relationships: {
-    destinations?: {
-      data: DestinationApiResource[];
-    };
+    destinations?: DestinationApiResource[];
     media?: {
       images?: MediaApiResource[];
       cover?: MediaApiResource;

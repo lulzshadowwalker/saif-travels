@@ -22,9 +22,10 @@ export class LaravelApiClient {
       if (response.status === 404) {
         throw new NotFoundError(`Resource not found: ${endpoint}`);
       }
+
       throw new ApiError(
         `Request failed: ${response.status} ${response.statusText}`,
-        response.status
+        response.status,
       );
     }
 
@@ -34,7 +35,7 @@ export class LaravelApiClient {
   async post<T = any>(
     endpoint: string,
     body: any,
-    options?: RequestInit
+    options?: RequestInit,
   ): Promise<T> {
     const response = await fetch(`${this.baseUrl}${endpoint}`, {
       ...options,
@@ -50,7 +51,7 @@ export class LaravelApiClient {
     if (!response.ok) {
       throw new ApiError(
         `Request failed: ${response.status} ${response.statusText}`,
-        response.status
+        response.status,
       );
     }
 
@@ -67,7 +68,7 @@ export class LaravelApiClient {
 export class ApiError extends Error {
   constructor(
     message: string,
-    public statusCode: number
+    public statusCode: number,
   ) {
     super(message);
     this.name = "ApiError";

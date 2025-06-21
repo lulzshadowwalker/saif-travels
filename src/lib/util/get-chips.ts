@@ -64,6 +64,7 @@ export async function getChip(value: string): Promise<Chip | null> {
     const chip = Object.values(chips).find(
       (chip) => chip.name.toLowerCase() === value.toLowerCase(),
     );
+
     return chip || null;
   }
 

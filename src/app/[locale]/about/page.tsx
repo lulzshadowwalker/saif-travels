@@ -133,10 +133,16 @@ function Cta() {
           [Reserve Your Spot] — Limited availability per retreat date.
         </p>
 
-        <button className="btn btn-accent text-base font-semibold mt-12">
-          <Phone fill="currentColor" size={16} className="me-1" />
-          Request a Call
-        </button>
+        <a
+          href="https://calendly.com/saif-jo-2025/30min"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <button className="btn btn-accent text-base font-semibold mt-12">
+            <Phone fill="currentColor" size={16} className="me-1" />
+            Request a Call
+          </button>
+        </a>
       </div>
     </div>
   );

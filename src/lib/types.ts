@@ -11,10 +11,10 @@ export type Package = {
   chips: Chip[];
   goal: string;
   duration: Day;
-  program: string;
-  activities: string;
-  stay: string;
-  ivDrips: string;
+  program: string[];
+  activities: string[];
+  stay: string[];
+  ivDrips: string[];
   destinations: Destination[];
   images: Image[];
   cover: Image;
