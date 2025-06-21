@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { Phone } from "lucide-react";
 import Image from "next/image";
 import banner from "@/assets/images/contact.png";
@@ -9,7 +10,15 @@ export const metadata: Metadata = {
     "Get in touch with Saif for questions, bookings, or more information about our wellness retreats and travel experiences in Jordan.",
 };
 
-export default function Contact() {
+export default async function Contact({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Enable static rendering
+  const locale = (await params).locale;
+  setRequestLocale(locale);
+
   return (
     <main className="container mx-auto my-20 max-lg:my-6 px-4">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16">

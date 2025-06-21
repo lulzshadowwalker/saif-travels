@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { PackageDetails } from "./components/package-details";
 import { PackageRepoFactory } from "@/lib/factory/package-repo-factory";
 import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 export async function generateStaticParams() {
   const packages = await PackageRepoFactory.create().list();
-  return packages.map((pkg) => ({
-    slug: pkg.slug,
-  }));
+  return routing.locales.flatMap((locale) =>
+    packages.map((pkg) => ({
+      locale,
+      slug: pkg.slug,
+    })),
+  );
 }
 
 export const metadata: Metadata = {
@@ -17,11 +22,14 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export default async function PackageDetailsPage({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
   const packageData = await PackageRepoFactory.create().get(slug);
   if (!packageData) notFound();
 

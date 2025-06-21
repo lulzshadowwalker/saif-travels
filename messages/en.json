@@ -1,0 +1,32 @@
+{
+  "HomePage": {
+    "title": "Healing & Wellness Retreats in Jordan",
+    "services": "Our Services",
+    "packages": "Our Packages",
+    "about": "Go to the about page"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "packages": "Packages",
+    "retreats": "Retreats",
+    "playground": "Playground"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "languages": {
+      "en": "English",
+      "ar": "العربية"
+    }
+  },
+  "Common": {
+    "explore": "Explore",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "requestCall": "Request a Call",
+    "days": "Days",
+    "people": "People"
+  }
+}

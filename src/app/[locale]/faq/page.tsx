@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import FaqList from "./components/faq-list";
 
 export const metadata: Metadata = {
@@ -7,6 +8,13 @@ export const metadata: Metadata = {
     "Find answers to common questions about Saif's IV therapy, wellness retreats, and travel services in Jordan.",
 };
 
-export default function Faq() {
+export default async function Faq({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Enable static rendering
+  const locale = (await params).locale;
+  setRequestLocale(locale);
   return <FaqList />;
 }

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/images/logo.svg";
 import { Phone, Menu, X } from "lucide-react";
+import { LanguageSwitcher } from "@/shared/language-switcher";
 
 type Props = {
   children?: React.ReactNode;
@@ -135,7 +136,8 @@ export function Header({ children }: Props) {
 
         {/* Request a Call button at the end */}
         <div className="flex-shrink-0 flex items-center gap-2">
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <a
               href="https://calendly.com/saif-jo-2025/30min"
               rel="noopener noreferrer"
@@ -271,7 +273,10 @@ export function Header({ children }: Props) {
             </div>
           </li>
         </ul>
-        <div className="px-4 mt-auto mb-6">
+        <div className="px-4 mt-auto mb-6 space-y-4">
+          <div className="flex justify-center">
+            <LanguageSwitcher />
+          </div>
           <a
             href="https://calendly.com/saif-jo-2025/30min"
             rel="noopener noreferrer"

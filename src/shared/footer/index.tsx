@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { X, Phone, Mail, MessageCircle } from "lucide-react";
 
 export function Footer() {

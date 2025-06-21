@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { Hero } from "./components/hero";
 import sample from "@/assets/images/hero.png";
 import {
@@ -306,7 +307,15 @@ const groups = [
   },
 ] as const;
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Enable static rendering
+  const locale = (await params).locale;
+  setRequestLocale(locale);
+
   return (
     <main className="scroll-smooth">
       <Hero />
@@ -367,7 +376,12 @@ export default function Home() {
               {group.packages.map((pkg) => (
                 <li className="card max-w-full flex flex-col" key={pkg.title}>
                   <div className="relative h-45 rounded-box overflow-hidden">
-                    <Image src={pkg.image} alt="Package Image" fill />
+                    <Image
+                      src={pkg.image}
+                      alt="Package Image"
+                      fill
+                      className="object-cover transition-all duration-500 ease-in-out hover:scale-[1.03]"
+                    />
 
                     <ul className="absolute bottom-2 start-2 flex gap-2">
                       {pkg.chips.map((chip) => (

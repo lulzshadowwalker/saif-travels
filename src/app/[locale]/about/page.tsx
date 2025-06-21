@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { BriefcaseMedical, Phone, RefreshCcw, Stethoscope } from "lucide-react";
 import { Hero } from "./components/hero";
 import pool from "@/assets/images/pool.png";
@@ -12,7 +13,15 @@ export const metadata: Metadata = {
     "Learn about Saif's medical-grade IV therapy, wellness philosophy, and what makes our healing retreats in Jordan unique.",
 };
 
-export default function About() {
+export default async function About({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Enable static rendering
+
+  const locale = (await params).locale;
+  setRequestLocale(locale);
   return (
     <main>
       <Hero />

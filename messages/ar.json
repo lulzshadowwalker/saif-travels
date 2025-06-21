@@ -1,0 +1,32 @@
+{
+  "HomePage": {
+    "title": "معتكفات الشفاء والعافية في الأردن",
+    "services": "خدماتنا",
+    "packages": "باقاتنا",
+    "about": "اذهب إلى صفحة حول"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "faq": "الأسئلة الشائعة",
+    "contact": "اتصل بنا",
+    "packages": "الباقات",
+    "retreats": "المعتكفات",
+    "playground": "ملعب"
+  },
+  "LanguageSwitcher": {
+    "label": "اللغة",
+    "languages": {
+      "en": "English",
+      "ar": "العربية"
+    }
+  },
+  "Common": {
+    "explore": "استكشف",
+    "learnMore": "اعرف المزيد",
+    "contactUs": "اتصل بنا",
+    "requestCall": "اطلب مكالمة",
+    "days": "أيام",
+    "people": "أشخاص"
+  }
+}
