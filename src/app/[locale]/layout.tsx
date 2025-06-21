@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Tajawal } from "next/font/google";
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import { Header } from "@/shared/header";
 import { Footer } from "@/shared/footer";
 import "../globals.css";
+import { RetreatRepoFactory } from "@/lib/factory/retreat-repo-factory";
 
 const tajawal = Tajawal({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -39,13 +40,17 @@ export default async function LocaleLayout({
   // Enable static rendering
   setRequestLocale(locale);
 
+  const retreats = await RetreatRepoFactory.create().list(locale);
+
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={`${locale === 'ar' ? tajawal.className : ''} antialiased`}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+      <body
+        className={`${locale === "ar" ? tajawal.className : ""} antialiased`}
+      >
         <NextIntlClientProvider>
-          <Header />
+          <Header retreats={retreats} />
           {children}
-          <Footer />
+          <Footer retreats={retreats} />
         </NextIntlClientProvider>
       </body>
     </html>

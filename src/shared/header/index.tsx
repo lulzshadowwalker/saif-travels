@@ -6,38 +6,14 @@ import { useState, useRef, useEffect } from "react";
 import logo from "@/assets/images/logo.svg";
 import { Phone, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/shared/language-switcher";
+import { Retreat } from "@/lib/types";
 
 type Props = {
   children?: React.ReactNode;
+  retreats: Retreat[];
 };
-const groups = [
-  {
-    title: "Tranquil Connections",
-  },
-  {
-    title: "Inner Transformation",
-  },
-  {
-    title: "Personal Empowerment",
-  },
-] as const;
 
-const healingJourneys = [
-  {
-    label: groups[0].title,
-    href: "/#" + groups[0].title.replace(/\s+/g, "-").toLowerCase(),
-  },
-  {
-    label: groups[1].title,
-    href: "/#" + groups[1].title.replace(/\s+/g, "-").toLowerCase(),
-  },
-  {
-    label: groups[2].title,
-    href: "/#" + groups[2].title.replace(/\s+/g, "-").toLowerCase(),
-  },
-];
-
-export function Header({ children }: Props) {
+export function Header({ children, retreats }: Props) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
@@ -116,15 +92,15 @@ export function Header({ children }: Props) {
                 }`}
               >
                 <ul className="py-2">
-                  {healingJourneys.map((item) => (
-                    <li key={item.href}>
+                  {retreats.map((retreat) => (
+                    <li key={retreat.slug}>
                       <Link
-                        href={item.href}
+                        href={"/#" + retreat.slug}
                         className="block px-4 py-2 text-gray-900 hover:bg-accent-50 hover:text-accent-700 transition whitespace-nowrap"
                         tabIndex={dropdownOpen ? 0 : -1}
                         onClick={() => setDropdownOpen(false)}
                       >
-                        {item.label}
+                        {retreat.name}
                       </Link>
                     </li>
                   ))}
@@ -255,17 +231,17 @@ export function Header({ children }: Props) {
               }`}
             >
               <ul className="flex flex-col gap-1">
-                {healingJourneys.map((item) => (
-                  <li key={item.href}>
+                {retreats.map((retreat) => (
+                  <li key={retreat.slug}>
                     <Link
-                      href={item.href}
+                      href={"/#" + retreat.slug}
                       className="block py-2 text-primary-content hover:bg-accent/10 rounded transition"
                       onClick={() => {
                         setMobileMenuOpen(false);
                         setMobileDropdownOpen(false);
                       }}
                     >
-                      {item.label}
+                      {retreat.name}
                     </Link>
                   </li>
                 ))}

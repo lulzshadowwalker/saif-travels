@@ -2,8 +2,13 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import { Link } from "@/i18n/navigation";
 import { X, Phone, Mail, MessageCircle } from "lucide-react";
+import { Retreat } from "@/lib/types";
 
-export function Footer() {
+type Props = {
+  retreats: Retreat[];
+};
+
+export function Footer({ retreats }: Props) {
   return (
     <footer className="bg-primary text-primary-content py-22 max-md:py-8">
       <div className="container mx-auto px-4">
@@ -22,15 +27,15 @@ export function Footer() {
           {/* Nav Group 1 */}
           <div className="mb-8 md:mb-0">
             <nav className="flex flex-col gap-4">
-              <Link href="#" className="hover:underline transition">
-                Tranquil Connections
-              </Link>
-              <Link href="#" className="hover:underline transition">
-                Inner Transformation
-              </Link>
-              <Link href="#" className="hover:underline transition">
-                Personal Empowerment
-              </Link>
+              {retreats.map((retreat) => (
+                <Link
+                  key={retreat.slug}
+                  href={"/#" + retreat.slug}
+                  className="hover:underline transition"
+                >
+                  {retreat.name}
+                </Link>
+              ))}
             </nav>
           </div>
 
