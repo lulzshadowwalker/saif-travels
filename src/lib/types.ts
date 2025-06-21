@@ -29,6 +29,12 @@ export type Faq = {
   answer: string;
 };
 
+export type SupportMessage = {
+  name: string;
+  email: string;
+  phone: string;
+};
+
 export type Image = {
   url: string;
   name?: string;

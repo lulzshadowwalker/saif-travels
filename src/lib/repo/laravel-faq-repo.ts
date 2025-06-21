@@ -4,7 +4,7 @@ import { Faq } from "../types";
 export class LaravelFaqRepo implements FaqRepo {
   async list(): Promise<Faq[]> {
     const response = await fetch(
-      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/faqs",
+      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/faqs?per_page=9999",
       { headers: { Accept: "application/json" } },
     );
 
