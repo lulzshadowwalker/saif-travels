@@ -1,20 +1,19 @@
 import { DestinationRepo } from "../contract/destination-repo";
 import { Destination } from "../types";
+import { DestinationMapper } from "../mappers";
+import { laravelApiClient } from "./laravel-api-client";
+import {
+  ApiCollectionResponse,
+  DestinationApiResource,
+} from "../types/api-responses";
+import { getAllRecordsQuery } from "../utils/api-utils";
 
 export class LaravelDestinationRepo implements DestinationRepo {
   async list(): Promise<Destination[]> {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/destinations?per_page=9999",
-      { headers: { Accept: "application/json" } },
-    );
+    const response = await laravelApiClient.get<
+      ApiCollectionResponse<DestinationApiResource>
+    >(`/destinations${getAllRecordsQuery()}`);
 
-    const destinations = (await response.json()).data;
-
-    return destinations.map((destination: any) => ({
-      name: destination.attributes.name,
-      slug: destination.attributes.slug,
-      packagesCount: destination.meta.packagesCount,
-      images: destination.relationships.media.images,
-    }));
+    return DestinationMapper.fromApiResponseArray(response.data);
   }
 }

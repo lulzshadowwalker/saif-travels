@@ -28,5 +28,13 @@
     "requestCall": "اطلب مكالمة",
     "days": "أيام",
     "people": "أشخاص"
+  },
+  "chips": {
+    "nature": "طبيعة",
+    "meditation": "تأمل",
+    "adventure": "مغامرة",
+    "explore": "استكشاف",
+    "honeymoon": "شهر العسل",
+    "yoga": "يوغا"
   }
 }

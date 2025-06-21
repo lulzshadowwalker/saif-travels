@@ -1,5 +1,6 @@
 export type Retreat = {
   name: string;
+  slug: string;
   packages: Package[];
 };
 
@@ -16,6 +17,8 @@ export type Package = {
   ivDrips: string;
   destinations: Destination[];
   images: Image[];
+  cover: Image;
+  tags: string[];
 };
 
 type Chip = "yoga";

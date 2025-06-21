@@ -28,5 +28,13 @@
     "requestCall": "Request a Call",
     "days": "Days",
     "people": "People"
+  },
+  "chips": {
+    "nature": "Nature",
+    "meditation": "Meditation",
+    "adventure": "Adventure",
+    "explore": "Explore",
+    "honeymoon": "Honeymoon",
+    "yoga": "Yoga"
   }
 }

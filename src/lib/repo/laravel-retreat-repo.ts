@@ -1,26 +1,19 @@
 import { RetreatRepo } from "../contract/retreat-repo";
 import { Retreat, Package } from "../types";
+import { RetreatMapper } from "../mappers";
+import { laravelApiClient } from "./laravel-api-client";
+import {
+  ApiCollectionResponse,
+  RetreatApiResource,
+} from "../types/api-responses";
+import { getAllRecordsQuery } from "../utils/api-utils";
 
 export class LaravelRetreatRepo implements RetreatRepo {
   async list(): Promise<Retreat[]> {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/retreats?per_page=9999",
-      { headers: { Accept: "application/json" } }
-    );
+    const response = await laravelApiClient.get<
+      ApiCollectionResponse<RetreatApiResource>
+    >(`/retreats${getAllRecordsQuery()}`);
 
-    const retreats = (await response.json()).data;
-
-    return retreats.map((retreat: any) => ({
-      name: retreat.attributes.name,
-      packages: (retreat.relationships.packages || []).map((pkg: any) => ({
-        name: pkg.attributes.name,
-        slug: pkg.attributes.slug,
-        durations: pkg.attributes.durations,
-        durationsDays: pkg.attributes.durationsDays,
-        tags: pkg.attributes.tags,
-        status: pkg.attributes.status,
-        isActive: pkg.attributes.isActive,
-      })),
-    }));
+    return RetreatMapper.fromApiResponseArray(response.data);
   }
 }

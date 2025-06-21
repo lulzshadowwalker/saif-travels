@@ -38,6 +38,8 @@ import serviceSample1 from "@/assets/images/service-sample-1.png";
 import serviceSample2 from "@/assets/images/service-sample-2.png";
 import serviceSample3 from "@/assets/images/service-sample-3.png";
 import serviceSample4 from "@/assets/images/service-sample-4.png";
+import { RetreatRepoFactory } from "@/lib/factory/retreat-repo-factory";
+import { getChip } from "@/lib/util/get-chips";
 
 const font = Scheherazade_New({
   subsets: ["latin"],
@@ -316,6 +318,8 @@ export default async function Home({
   const locale = (await params).locale;
   setRequestLocale(locale);
 
+  const retreats = await RetreatRepoFactory.create().list();
+
   return (
     <main className="scroll-smooth">
       <Hero />
@@ -364,56 +368,63 @@ export default async function Home({
         <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
           Our Packages
         </h2>
-        {groups.map((group) => (
-          <div key={group.title} className="mb-16">
+        {retreats.map((retreat) => (
+          <div key={retreat.name} className="mb-16">
             <h3
-              id={group.title.replace(/\s+/g, "-").toLowerCase()}
+              id={retreat.slug}
               className={`text-xl font-medium mt-14 mb-8 scroll-mt-32 ${font.className}`}
             >
-              {group.title}
+              {retreat.name}
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {group.packages.map((pkg) => (
-                <li className="card max-w-full flex flex-col" key={pkg.title}>
+              {retreat.packages.map((pkg) => (
+                <li className="card max-w-full flex flex-col" key={pkg.name}>
                   <div className="relative h-45 rounded-box overflow-hidden">
                     <Image
-                      src={pkg.image}
-                      alt="Package Image"
+                      src={pkg.cover.url}
+                      alt={pkg.cover.name ?? pkg.name + " cover"}
                       fill
                       className="object-cover transition-all duration-900 ease-in-out hover:scale-[1.03]"
                     />
 
                     <ul className="absolute bottom-2 start-2 flex gap-2">
-                      {pkg.chips.map((chip) => (
-                        <li
-                          key={chip.name}
-                          className="flex items-center justify-center gap-1 px-2 py-1 rounded-box"
-                          style={{ backgroundColor: chip.color }}
-                        >
-                          <chip.icon
-                            size={16}
-                            style={{ color: chip.iconColor }}
-                          />
-                          <span
-                            className="text-sm"
-                            style={{ color: chip.iconColor }}
+                      {pkg.chips.map(async (c) => {
+                        const chip = await getChip(c);
+                        if (!chip) return null;
+
+                        return (
+                          <li
+                            key={chip.name}
+                            className="flex items-center justify-center gap-1 px-2 py-1 rounded-box"
+                            style={{ backgroundColor: chip.background }}
                           >
-                            {chip.name}
-                          </span>
-                        </li>
-                      ))}
+                            <chip.icon
+                              size={16}
+                              style={{ color: chip.color }}
+                            />
+                            <span
+                              className="text-sm"
+                              style={{ color: chip.color }}
+                            >
+                              {chip.name}
+                            </span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
 
-                  <h4 className="text-2xl font-bold mt-6 mb-7">{pkg.title}</h4>
+                  <h4 className="text-2xl font-bold mt-6 mb-7">{pkg.name}</h4>
                   <p className="text-lg font-light mb-6">{pkg.description}</p>
 
                   <div className="flex justify-between gap-2 mb-20">
                     <ul>
-                      {pkg.locations.slice(0, 1).map((loc) => (
-                        <li className="flex items-center gap-2" key={loc}>
+                      {pkg.destinations.slice(0, 1).map((dest) => (
+                        <li className="flex items-center gap-2" key={dest.name}>
                           <MapPin size={16} />
-                          <span className="text-lg font-light">{loc}</span>
+                          <span className="text-lg font-light">
+                            {dest.name}
+                          </span>
                         </li>
                       ))}
                     </ul>
