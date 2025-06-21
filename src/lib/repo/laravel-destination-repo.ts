@@ -4,7 +4,7 @@ import { Destination } from "../types";
 export class LaravelDestinationRepo implements DestinationRepo {
   async list(): Promise<Destination[]> {
     const response = await fetch(
-      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/destinations",
+      process.env.NEXT_PUBLIC_LARAVEL_BASE_URL + "/destinations?per_page=9999",
       { headers: { Accept: "application/json" } },
     );
 

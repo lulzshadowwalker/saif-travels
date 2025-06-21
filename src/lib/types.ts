@@ -24,6 +24,11 @@ export type Destination = {
   images: Image[];
 };
 
+export type Faq = {
+  question: string;
+  answer: string;
+};
+
 export type Image = {
   url: string;
   name?: string;
