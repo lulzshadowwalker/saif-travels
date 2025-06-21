@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import cta from "@/assets/images/cta.png";
-import { Phone } from "lucide-react";
+import { Widget, PopupButton } from "@typeform/embed-react";
+
+import "@typeform/embed/build/css/popup.css";
+import "@typeform/embed/build/css/widget.css";
+import { SparklesIcon } from "lucide-react";
 
 export function Cta() {
   return (
@@ -17,11 +23,26 @@ export function Cta() {
       <div className="absolute inset-0 max-w-222 mx-auto flex items-center justify-between px-4">
         <h2 className="text-4xl font-bold text-white">Join Us Today!</h2>
 
-        <button className="btn btn-accent text-base font-semibold">
-          <Phone fill="currentColor" size={16} className="me-1" />
-          Request a Call
-        </button>
+        <TypeformPopupTrigger />
       </div>
     </div>
+  );
+}
+
+function TypeformPopupTrigger() {
+  const typeformId = "J5kONAJm";
+
+  return (
+    <>
+      <PopupButton
+        id={typeformId}
+        className="btn btn-accent text-base font-semibold"
+      >
+        <SparklesIcon fill="currentColor" size={16} className="me-1" />
+        Request a Custom Offer
+      </PopupButton>
+
+      <Widget id={typeformId} className="hidden" />
+    </>
   );
 }
