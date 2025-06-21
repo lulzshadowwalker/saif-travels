@@ -1,5 +1,5 @@
 import { Faq } from "../types";
 
 export interface FaqRepo {
-  list(): Promise<Faq[]>;
+  list(locale: string): Promise<Faq[]>;
 }

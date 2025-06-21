@@ -1,6 +1,6 @@
 import { Package } from "../types";
 
 export interface PackageRepo {
-  list(): Promise<Package[]>;
-  get(slug: string): Promise<Package | null>;
+  list(locale: string): Promise<Package[]>;
+  get(locale: string, slug: string): Promise<Package | null>;
 }

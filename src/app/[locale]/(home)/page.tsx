@@ -1,37 +1,16 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "./components/hero";
-import sample from "@/assets/images/hero.png";
-import {
-  Brain,
-  Compass,
-  Globe,
-  MapPin,
-  ScanHeart,
-  TreeDeciduous,
-} from "lucide-react";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
 import { Scheherazade_New } from "next/font/google";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Saif | Healing & Wellness Retreats in Jordan",
   description:
     "Discover Saif's unique healing retreats, IV therapy, and wellness experiences across Jordan's most beautiful destinations.",
 };
-
-// Import dedicated package sample images
-import packageSample1 from "@/assets/images/package-sample-1.png";
-import packageSample2 from "@/assets/images/package-sample-2.png";
-import packageSample3 from "@/assets/images/package-sample-3.png";
-import packageSample4 from "@/assets/images/package-sample-4.png";
-import packageSample5 from "@/assets/images/package-sample-5.png";
-import packageSample6 from "@/assets/images/package-sample-6.png";
-import packageSample7 from "@/assets/images/package-sample-7.png";
-import packageSample8 from "@/assets/images/package-sample-8.png";
-import packageSample9 from "@/assets/images/package-sample-9.png";
-import packageSample10 from "@/assets/images/package-sample-10.png";
 
 // Import service sample images
 import serviceSample1 from "@/assets/images/service-sample-1.png";
@@ -40,274 +19,12 @@ import serviceSample3 from "@/assets/images/service-sample-3.png";
 import serviceSample4 from "@/assets/images/service-sample-4.png";
 import { RetreatRepoFactory } from "@/lib/factory/retreat-repo-factory";
 import { getChip } from "@/lib/util/get-chips";
+import { Link } from "@/i18n/navigation";
 
 const font = Scheherazade_New({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
-
-// Assign a sample image to each package (re-use if more than 10)
-const packageImages = [
-  packageSample1,
-  packageSample2,
-  packageSample3,
-  packageSample4,
-  packageSample5,
-  packageSample6,
-  packageSample7,
-  packageSample8,
-  packageSample9,
-  packageSample10,
-];
-
-const groups = [
-  {
-    title: "Tranquil Connections",
-    packages: [
-      {
-        slug: "iv-drip-therapy",
-        title: "IV Drip Therapy",
-        description:
-          "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
-        locations: ["Petra", "Dead Sea", "Wadi Rum"],
-        tags: ["#Wellness", "#Therapy", "#IVDrip"],
-        chips: [
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Adventure",
-            icon: Compass,
-            iconColor: "#1E90FF",
-            color: "#D5EFFF",
-          },
-        ],
-        image: packageImages[0],
-      },
-      {
-        slug: "horse-whispering",
-        title: "Horse Whispering",
-        description:
-          "Experience the unique art of connecting with horses while exploring Jordan's stunning landscapes and rich history. This tour offers a special opportunity to bond with these majestic animals through tailored experiences.",
-        locations: ["Amman", "Wadi Rum", "Petra"],
-        tags: ["#Adventure", "#Culture", "#Explore"],
-        chips: [
-          {
-            name: "Adventure",
-            icon: Compass,
-            iconColor: "#1E90FF",
-            color: "#D5EFFF",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-          {
-            name: "Explore",
-            icon: Globe,
-            iconColor: "#197CC3",
-            color: "#B1E4FF",
-          },
-        ],
-        image: packageImages[1],
-      },
-      {
-        slug: "peace-and-quiet",
-        title: "Peace and Quiet",
-        description:
-          "Enter a state of deep meditation, aiming to free oneself from noise and disconnect from the world.",
-        locations: ["Remote Southern Areas", "Azraq Desert", "Wadi Rum"],
-        tags: ["#Peace", "#Meditation", "#Desert"],
-        chips: [
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[2],
-      },
-    ],
-  },
-  {
-    title: "Inner Transformation",
-    packages: [
-      {
-        slug: "renewal",
-        title: "Renewal",
-        description:
-          "Rejuvenate the body and mind, detoxify, and restore energy and vitality.",
-        locations: ["Wadi Zarqa Ma'in", "Dead Sea", "Wadi Rum"],
-        tags: ["#Renewal", "#Detox", "#Wellness"],
-        chips: [
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[3],
-      },
-      {
-        slug: "turning-point",
-        title: "Turning Point",
-        description:
-          "Support transitioning from a difficult life stage or major decision (e.g., divorce, loss, career change).",
-        locations: ["Ajloun", "Umm Qais", "Wadi Al-Rayan"],
-        tags: ["#Healing", "#Support", "#Transformation"],
-        chips: [
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[4],
-      },
-      {
-        slug: "the-body-knows",
-        title: "The Body Knows",
-        description:
-          "Reconnect with the body, understand its signals, and heal the relationship with it.",
-        locations: ["Madaba", "Dead Sea", "Dibeen"],
-        tags: ["#Healing", "#Wellness", "#BodyAwareness"],
-        chips: [
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[5],
-      },
-    ],
-  },
-  {
-    title: "Personal Empowerment",
-    packages: [
-      {
-        slug: "safe-space",
-        title: "Safe Space",
-        description:
-          "Provide a safe and supportive space for women/men to express, heal, and rebuild.",
-        locations: ["Al-Fuheis", "As-Salt", "Wadi Rum"],
-        tags: ["#SafeSpace", "#Healing", "#Support"],
-        chips: [
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[6],
-      },
-      {
-        slug: "together",
-        title: "Together",
-        description:
-          "A healing journey for couples (romantic, friends, life partners) to strengthen bonds and reconnect authentically.",
-        locations: ["Jerash", "Dead Sea", "Wadi Rum"],
-        tags: ["#Couples", "#Healing", "#Connection"],
-        chips: [
-          {
-            name: "Honeymoon",
-            icon: ScanHeart,
-            iconColor: "#D3388D",
-            color: "#FFB5D3",
-          },
-          {
-            name: "Meditation",
-            icon: Brain,
-            iconColor: "#E58A21",
-            color: "#FFF2D5",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[7],
-      },
-      {
-        slug: "i-discover-myself",
-        title: "I Discover Myself",
-        description:
-          "Support youth and teenagers in exploring their identity, building self-confidence, and fostering a sense of belonging.",
-        locations: ["Ajloun", "Dead Sea", "Mujo"],
-        tags: ["#Youth", "#Confidence", "#SelfDiscovery"],
-        chips: [
-          {
-            name: "Adventure",
-            icon: Compass,
-            iconColor: "#1E90FF",
-            color: "#D5EFFF",
-          },
-          {
-            name: "Explore",
-            icon: Globe,
-            iconColor: "#197CC3",
-            color: "#B1E4FF",
-          },
-          {
-            name: "Nature",
-            icon: TreeDeciduous,
-            iconColor: "#5BC73A",
-            color: "#E0FFC8",
-          },
-        ],
-        image: packageImages[8],
-      },
-    ],
-  },
-] as const;
 
 export default async function Home({
   params,
@@ -318,7 +35,7 @@ export default async function Home({
   const locale = (await params).locale;
   setRequestLocale(locale);
 
-  const retreats = await RetreatRepoFactory.create().list();
+  const retreats = await RetreatRepoFactory.create().list(locale);
 
   return (
     <main className="scroll-smooth">

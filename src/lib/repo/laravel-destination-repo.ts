@@ -9,10 +9,12 @@ import {
 import { getAllRecordsQuery } from "../utils/api-utils";
 
 export class LaravelDestinationRepo implements DestinationRepo {
-  async list(): Promise<Destination[]> {
+  async list(locale: string): Promise<Destination[]> {
     const response = await laravelApiClient.get<
       ApiCollectionResponse<DestinationApiResource>
-    >(`/destinations${getAllRecordsQuery()}`);
+    >(`/destinations${getAllRecordsQuery()}`, {
+      headers: { "Accept-Language": locale },
+    });
 
     return DestinationMapper.fromApiResponseArray(response.data);
   }

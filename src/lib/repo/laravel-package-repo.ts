@@ -10,19 +10,21 @@ import {
 import { getAllRecordsQuery } from "../utils/api-utils";
 
 export class LaravelPackageRepo implements PackageRepo {
-  async list(): Promise<Package[]> {
+  async list(locale: string): Promise<Package[]> {
     const response = await laravelApiClient.get<
       ApiCollectionResponse<PackageApiResource>
-    >(`/packages${getAllRecordsQuery()}`);
+    >(`/packages${getAllRecordsQuery()}`, {
+      headers: { "Accept-Language": locale },
+    });
 
     return PackageMapper.fromApiResponseArray(response.data);
   }
 
-  async get(slug: string): Promise<Package | null> {
+  async get(locale: string, slug: string): Promise<Package | null> {
     try {
       const response = await laravelApiClient.get<
         ApiResponse<PackageApiResource>
-      >(`/packages/${slug}`);
+      >(`/packages/${slug}`, { headers: { "Accept-Language": locale } });
 
       return PackageMapper.fromApiResponse(response.data);
     } catch (error) {

@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getLocale, setRequestLocale } from "next-intl/server";
 import { PackageDetails } from "./components/package-details";
 import { PackageRepoFactory } from "@/lib/factory/package-repo-factory";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-export async function generateStaticParams() {
-  const packages = await PackageRepoFactory.create().list();
+export async function generateStaticParams({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const locale = (await params).locale;
+  const packages = await PackageRepoFactory.create().list(locale);
   return routing.locales.flatMap((locale) =>
     packages.map((pkg) => ({
       locale,
@@ -30,7 +35,8 @@ export default async function PackageDetailsPage({ params }: Props) {
 
   // Enable static rendering
   setRequestLocale(locale);
-  const packageData = await PackageRepoFactory.create().get(slug);
+  const locale = await getLocale();
+  const packageData = await PackageRepoFactory.create().get(locale, slug);
   if (!packageData) notFound();
 
   return <PackageDetails packageData={packageData} />;

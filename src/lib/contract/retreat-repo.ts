@@ -1,5 +1,5 @@
 import { Retreat } from "../types";
 
 export interface RetreatRepo {
-  list(): Promise<Retreat[]>;
+  list(locale: string): Promise<Retreat[]>;
 }
