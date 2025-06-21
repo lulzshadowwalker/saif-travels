@@ -1,10 +1,24 @@
+import type { Metadata } from "next";
 import { Hero } from "./components/hero";
 import sample from "@/assets/images/hero.png";
-import { Brain, Compass, Globe, MapPin, ScanHeart, TreeDeciduous } from "lucide-react";
+import {
+  Brain,
+  Compass,
+  Globe,
+  MapPin,
+  ScanHeart,
+  TreeDeciduous,
+} from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
 import { Scheherazade_New } from "next/font/google";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Saif | Healing & Wellness Retreats in Jordan",
+  description:
+    "Discover Saif's unique healing retreats, IV therapy, and wellness experiences across Jordan's most beautiful destinations.",
+};
 
 // Import dedicated package sample images
 import packageSample1 from "@/assets/images/package-sample-1.png";
@@ -53,11 +67,26 @@ const groups = [
         description:
           "Specialized IV Drip sessions offered within accommodations or as part of daily activities, including all types of drips (Hydration, Energy, Detox, Immunity, Beauty) under the supervision of licensed specialists.",
         locations: ["Petra", "Dead Sea", "Wadi Rum"],
-        tags: ["#Wellness", "#Therapy", "#IVDrip"], 
+        tags: ["#Wellness", "#Therapy", "#IVDrip"],
         chips: [
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Adventure",
+            icon: Compass,
+            iconColor: "#1E90FF",
+            color: "#D5EFFF",
+          },
         ],
         image: packageImages[0],
       },
@@ -69,9 +98,24 @@ const groups = [
         locations: ["Amman", "Wadi Rum", "Petra"],
         tags: ["#Adventure", "#Culture", "#Explore"],
         chips: [
-          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
-          { name: "Explore", icon: Globe, iconColor: "#197CC3", color: "#B1E4FF" },
+          {
+            name: "Adventure",
+            icon: Compass,
+            iconColor: "#1E90FF",
+            color: "#D5EFFF",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
+          {
+            name: "Explore",
+            icon: Globe,
+            iconColor: "#197CC3",
+            color: "#B1E4FF",
+          },
         ],
         image: packageImages[1],
       },
@@ -83,8 +127,18 @@ const groups = [
         locations: ["Remote Southern Areas", "Azraq Desert", "Wadi Rum"],
         tags: ["#Peace", "#Meditation", "#Desert"],
         chips: [
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[2],
       },
@@ -101,8 +155,18 @@ const groups = [
         locations: ["Wadi Zarqa Ma'in", "Dead Sea", "Wadi Rum"],
         tags: ["#Renewal", "#Detox", "#Wellness"],
         chips: [
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[3],
       },
@@ -114,8 +178,18 @@ const groups = [
         locations: ["Ajloun", "Umm Qais", "Wadi Al-Rayan"],
         tags: ["#Healing", "#Support", "#Transformation"],
         chips: [
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[4],
       },
@@ -127,8 +201,18 @@ const groups = [
         locations: ["Madaba", "Dead Sea", "Dibeen"],
         tags: ["#Healing", "#Wellness", "#BodyAwareness"],
         chips: [
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[5],
       },
@@ -145,8 +229,18 @@ const groups = [
         locations: ["Al-Fuheis", "As-Salt", "Wadi Rum"],
         tags: ["#SafeSpace", "#Healing", "#Support"],
         chips: [
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[6],
       },
@@ -158,9 +252,24 @@ const groups = [
         locations: ["Jerash", "Dead Sea", "Wadi Rum"],
         tags: ["#Couples", "#Healing", "#Connection"],
         chips: [
-          { name: "Honeymoon", icon: ScanHeart, iconColor: "#D3388D", color: "#FFB5D3" },
-          { name: "Meditation", icon: Brain, iconColor: "#E58A21", color: "#FFF2D5" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Honeymoon",
+            icon: ScanHeart,
+            iconColor: "#D3388D",
+            color: "#FFB5D3",
+          },
+          {
+            name: "Meditation",
+            icon: Brain,
+            iconColor: "#E58A21",
+            color: "#FFF2D5",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[7],
       },
@@ -172,9 +281,24 @@ const groups = [
         locations: ["Ajloun", "Dead Sea", "Mujo"],
         tags: ["#Youth", "#Confidence", "#SelfDiscovery"],
         chips: [
-          { name: "Adventure", icon: Compass, iconColor: "#1E90FF", color: "#D5EFFF" },
-          { name: "Explore", icon: Globe, iconColor: "#197CC3", color: "#B1E4FF" },
-          { name: "Nature", icon: TreeDeciduous, iconColor: "#5BC73A", color: "#E0FFC8" },
+          {
+            name: "Adventure",
+            icon: Compass,
+            iconColor: "#1E90FF",
+            color: "#D5EFFF",
+          },
+          {
+            name: "Explore",
+            icon: Globe,
+            iconColor: "#197CC3",
+            color: "#B1E4FF",
+          },
+          {
+            name: "Nature",
+            icon: TreeDeciduous,
+            iconColor: "#5BC73A",
+            color: "#E0FFC8",
+          },
         ],
         image: packageImages[8],
       },
@@ -256,7 +380,10 @@ export default function Home() {
                             size={16}
                             style={{ color: chip.iconColor }}
                           />
-                          <span className="text-sm" style={{ color: chip.iconColor }}>
+                          <span
+                            className="text-sm"
+                            style={{ color: chip.iconColor }}
+                          >
                             {chip.name}
                           </span>
                         </li>

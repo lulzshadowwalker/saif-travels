@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { BriefcaseMedical, Phone, RefreshCcw, Stethoscope } from "lucide-react";
 import { Hero } from "./components/hero";
 import pool from "@/assets/images/pool.png";
@@ -5,6 +6,11 @@ import Image from "next/image";
 
 import cta from "@/assets/images/cta.png";
 
+export const metadata: Metadata = {
+  title: "About Saif | IV Drip & Wellness Retreats",
+  description:
+    "Learn about Saif's medical-grade IV therapy, wellness philosophy, and what makes our healing retreats in Jordan unique.",
+};
 
 export default function About() {
   return (
@@ -111,8 +117,12 @@ function Cta() {
       <div className="absolute inset-0 bg-black/42" />
 
       <div className="absolute inset-0 max-w-222 mx-auto flex flex-col items-center justify-center px-4">
-        <h2 className="text-[2.5rem] font-bold text-white text-center text-balance mb-1">Ready to refresh your body and mind?</h2>
-        <p className="text-center max-w-prose text-white">[Reserve Your Spot] — Limited availability per retreat date.</p>
+        <h2 className="text-[2.5rem] font-bold text-white text-center text-balance mb-1">
+          Ready to refresh your body and mind?
+        </h2>
+        <p className="text-center max-w-prose text-white">
+          [Reserve Your Spot] — Limited availability per retreat date.
+        </p>
 
         <button className="btn btn-accent text-base font-semibold mt-12">
           <Phone fill="currentColor" size={16} className="me-1" />
