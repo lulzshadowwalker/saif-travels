@@ -63,7 +63,7 @@ export function Header({ children }: Props) {
         </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8 mx-auto">
+        <ul className="hidden md:flex items-center gap-8 mx-auto translate-x-14 rtl:-translate-x-14">
           <li>
             <Link href="/" className="font-medium hover:underline transition">
               Home
