@@ -35,7 +35,6 @@ export default async function PackageDetailsPage({ params }: Props) {
 
   // Enable static rendering
   setRequestLocale(locale);
-  const locale = await getLocale();
   const packageData = await PackageRepoFactory.create().get(locale, slug);
   if (!packageData) notFound();
 
