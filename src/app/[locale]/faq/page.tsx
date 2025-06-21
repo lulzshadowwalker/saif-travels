@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import FaqList from "./components/faq-list";
+import { FaqRepoFactory } from "@/lib/factory/faq-repo-factory";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Saif Travel and Tourism",
@@ -16,5 +17,7 @@ export default async function Faq({
   // Enable static rendering
   const locale = (await params).locale;
   setRequestLocale(locale);
-  return <FaqList />;
+
+  const faqs = await FaqRepoFactory.create().list(locale);
+  return <FaqList faqs={faqs} />;
 }

@@ -2,8 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Faq } from "@/lib/types";
 
-export default function FaqList() {
+type Props = {
+  faqs: Faq[];
+};
+
+export default function FaqList({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFaq = (index: number) => {
@@ -17,7 +22,7 @@ export default function FaqList() {
       </h1>
 
       <ul className="space-y-8">
-        {questions().map((item, index) => (
+        {faqs.map((item, index) => (
           <FaqItem
             key={index}
             item={item}
@@ -124,34 +129,4 @@ function AngleDownIcon() {
       <polyline points="6,9 12,15 18,9"></polyline>
     </svg>
   );
-}
-
-function questions() {
-  return [
-    {
-      question: "Is it safe for people with medical conditions?",
-      answer:
-        "Yes, our IV therapy is designed to be safe for most individuals, including those with common medical conditions. However, we recommend consulting with a healthcare professional before starting any new treatment.",
-    },
-    {
-      question: "How many IV sessions are included?",
-      answer:
-        "Each package includes a specific number of IV sessions, which can vary based on individual needs and treatment plans.",
-    },
-    {
-      question: "Can I choose the drip type myself?",
-      answer:
-        "Yes, you can choose from a variety of drip types based on your health goals and preferences. Our team will help guide you in selecting the best option for your needs.",
-    },
-    {
-      question: "What should I expect during an IV session?",
-      answer:
-        "During an IV session, you can expect to relax in a comfortable setting while our trained professionals administer the treatment. The process is generally quick and straightforward.",
-    },
-    {
-      question: "How long does each IV session take?",
-      answer:
-        "Each IV session typically takes between 30 to 60 minutes, depending on the type of treatment and individual needs.",
-    },
-  ];
 }
