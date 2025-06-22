@@ -90,6 +90,10 @@
     }
   },
   "AboutPage": {
+    "hero": {
+      "title": "Recharge Your Body",
+      "subtitle": "Wellness IV Therapy in Jordan — Delivered by Licensed Experts. Restore your energy & glow while enjoying your retreat."
+    },
     "whatIsIVDrip": {
       "title": "What is an IV Drip?",
       "feature1": "Our medical-grade intravenous therapy delivers essential vitamins, minerals, and hydration directly into your bloodstream — for instant results.",
