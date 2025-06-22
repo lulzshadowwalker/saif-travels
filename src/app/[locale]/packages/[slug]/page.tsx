@@ -6,20 +6,8 @@ import { PackageRepoFactory } from "@/lib/factory/package-repo-factory";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-export async function generateStaticParams({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const locale = (await params).locale;
-  const packages = await PackageRepoFactory.create().list(locale);
-  return routing.locales.flatMap((locale) =>
-    packages.map((pkg) => ({
-      locale,
-      slug: pkg.slug,
-    })),
-  );
-}
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function generateMetadata({
   params,

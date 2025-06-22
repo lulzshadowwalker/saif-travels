@@ -9,6 +9,9 @@ import { Footer } from "@/shared/footer";
 import "../globals.css";
 import { RetreatRepoFactory } from "@/lib/factory/retreat-repo-factory";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const tajawal = Tajawal({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "700", "800", "900"],
@@ -26,10 +29,6 @@ export async function generateMetadata({
     title: t("root.title"),
     description: t("root.description"),
   };
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({

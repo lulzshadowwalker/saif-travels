@@ -16,6 +16,7 @@ export class LaravelApiClient {
         ...this.defaultHeaders,
         ...options?.headers,
       },
+      cache: "no-store",
     });
 
     if (!response.ok) {
@@ -46,6 +47,7 @@ export class LaravelApiClient {
         ...options?.headers,
       },
       body: JSON.stringify(body),
+      cache: "no-store",
     });
 
     if (!response.ok) {

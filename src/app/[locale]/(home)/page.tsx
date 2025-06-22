@@ -16,6 +16,9 @@ import { RetreatRepoFactory } from "@/lib/factory/retreat-repo-factory";
 import { getChip } from "@/lib/util/get-chips";
 import { Link } from "@/i18n/navigation";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const font = Scheherazade_New({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
