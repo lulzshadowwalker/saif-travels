@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import hero from "@/assets/images/hero.png";
 import logo from "@/assets/images/logo-white.svg";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
+  const tCommon = useTranslations("Common");
   return (
     <div className="relative h-screen">
       <Image
@@ -18,7 +22,7 @@ export function Hero() {
         <Image src={logo} alt="Logo" />
 
         <button className="btn btn-accent mt-10 max-md:mt-5 max-w-60 w-full">
-          Start your Journey
+          {tCommon("startYourJourney")}
         </button>
       </div>
 

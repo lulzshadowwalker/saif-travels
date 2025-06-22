@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Phone } from "lucide-react";
 import Image from "next/image";
 import banner from "@/assets/images/contact.png";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Saif Travel and Tourism",
-  description:
-    "Get in touch with Saif for questions, bookings, or more information about our wellness retreats and travel experiences in Jordan.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("contact.title"),
+    description: t("contact.description"),
+  };
+}
 
 export default async function Contact({
   params,
@@ -18,6 +27,9 @@ export default async function Contact({
   // Enable static rendering
   const locale = (await params).locale;
   setRequestLocale(locale);
+
+  const t = await getTranslations("ContactPage");
+  const tCommon = await getTranslations("Common");
 
   return (
     <main className="container mx-auto my-20 max-lg:my-6 px-4">
@@ -35,17 +47,16 @@ export default async function Contact({
         <section className="w-full md:max-w-104 md:me-8">
           <div className="border-l-2 border-accent px-2 py-12 max-lg:py-6 mb-20 max-lg:mb-8">
             <h1 className="text-[2.5rem] max-lg:text-2xl font-semibold">
-              Get in Touch
+              {t("title")}
             </h1>
             <p className="text-[#171717] text-base max-lg:text-sm">
-              Got a question or want to learn more? Fill out the form and we'll
-              get back to you soon!
+              {t("description")}
             </p>
           </div>
 
           <form className="space-y-8">
             <label htmlFor="name" className="sr-only">
-              Name
+              {tCommon("name")}
             </label>
             <input
               id="name"
@@ -56,12 +67,12 @@ export default async function Contact({
                          focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent
                          placeholder:text-gray-500 placeholder:transition-colors
                          focus:placeholder:text-gray-400"
-              placeholder="Name"
+              placeholder={t("form.namePlaceholder")}
               required
             />
 
             <label htmlFor="email" className="sr-only">
-              Email
+              {tCommon("email")}
             </label>
             <input
               id="email"
@@ -72,12 +83,12 @@ export default async function Contact({
                          focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent
                          placeholder:text-gray-500 placeholder:transition-colors
                          focus:placeholder:text-gray-400"
-              placeholder="Email"
+              placeholder={t("form.emailPlaceholder")}
               required
             />
 
             <label htmlFor="phone" className="sr-only">
-              Phone
+              {tCommon("phone")}
             </label>
             <input
               id="phone"
@@ -88,7 +99,7 @@ export default async function Contact({
                          focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent
                          placeholder:text-gray-500 placeholder:transition-colors
                          focus:placeholder:text-gray-400"
-              placeholder="Phone"
+              placeholder={t("form.phonePlaceholder")}
               required
             />
 
@@ -97,7 +108,7 @@ export default async function Contact({
               className="btn btn-accent mt-12 max-lg:mt-6 w-full md:w-auto flex items-center justify-center gap-2"
             >
               <Phone size={16} fill="currentColor" />
-              Contact Us
+              {t("form.submitButton")}
             </button>
           </form>
         </section>

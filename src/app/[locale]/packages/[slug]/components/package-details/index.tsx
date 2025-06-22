@@ -3,9 +3,9 @@
 import { Calendar, MapPin, Phone } from "lucide-react";
 import { Scheherazade_New } from "next/font/google";
 import Image from "next/image";
-import sample from "@/assets/images/hero.png";
 import Marquee from "react-fast-marquee";
 import { Package } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 const font = Scheherazade_New({
   subsets: ["latin"],
@@ -17,6 +17,9 @@ type Props = {
 };
 
 export function PackageDetails({ packageData }: Props) {
+  const t = useTranslations("PackageDetails");
+  const tCommon = useTranslations("Common");
+
   return (
     <main>
       <div className="container mx-auto my-12 max-md:my-8 flex flex-col lg:flex-row justify-center gap-8 md:gap-12 items-center px-4">
@@ -33,7 +36,7 @@ export function PackageDetails({ packageData }: Props) {
             <ul className="space-y-4 flex-shrink-0">
               <li className="flex items-center gap-4">
                 <Calendar size={16} className="-translate-y-[3px]" />{" "}
-                {packageData.duration} Days
+                {packageData.duration} {tCommon("days")}
               </li>
               {/* <li className="flex items-center gap-4">
                 <User size={16} className="-translate-y-[3px]" />{" "}
@@ -60,8 +63,8 @@ export function PackageDetails({ packageData }: Props) {
 
         <div className="relative w-full max-w-136 h-60 md:h-75 rounded-box overflow-hidden group mt-8 lg:mt-0">
           <Image
-            src={sample}
-            alt={packageData.name}
+            src={packageData.cover.url}
+            alt={packageData.cover.name ?? packageData.name + " cover"}
             fill
             className="object-cover transition-all duration-900 ease-out group-hover:scale-[1.02]"
           />
@@ -70,20 +73,27 @@ export function PackageDetails({ packageData }: Props) {
 
       <div dir="ltr">
         <Marquee autoFill speed={15} direction="left" className="my-10">
-          <div className="rounded-box overflow-hidden relative h-38 w-64 mx-2">
-            <Image
-              src={sample}
-              alt=""
-              fill
-              className="object-cover transition-all duration-900 ease-out group-hover:scale-[1.02]"
-            />
-          </div>
+          {packageData.images.map((image, index) => (
+            <div
+              className="rounded-box overflow-hidden relative h-38 w-64 mx-2"
+              key={index}
+            >
+              <Image
+                src={image.url}
+                alt={image.name ?? ""}
+                fill
+                className="object-cover transition-all duration-900 ease-out group-hover:scale-[1.02]"
+              />
+            </div>
+          ))}
         </Marquee>
       </div>
 
       <section className="container mx-auto px-4 my-16 max-md:my-8 flex items-start max-w-278">
         <div>
-          <h2 className="text-[2.5rem] font-semibold mb-3">Tour Program</h2>
+          <h2 className="text-[2.5rem] font-semibold mb-3">
+            {t("tourProgram")}
+          </h2>
           <ul className="list-disc list-inside">
             {packageData.program.map((program, index) => (
               <li key={index}>{program}</li>
@@ -95,7 +105,7 @@ export function PackageDetails({ packageData }: Props) {
 
         <div>
           <h2 className="text-[2.5rem] font-semibold mb-3">
-            Healing Activities
+            {t("healingActivities")}
           </h2>
           <ul className="list-disc list-inside">
             {packageData.activities.map((activity, index) => (
@@ -109,7 +119,7 @@ export function PackageDetails({ packageData }: Props) {
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {packageData.destinations?.length ? (
             <li className="card max-w-full bg-[#F6F6F6]">
-              <h2 className="text-lg font-medium">Choose a Place</h2>
+              <h2 className="text-lg font-medium">{t("choosePlace")}</h2>
               <ul className="text-sm tracking-wide list-disc list-inside mt-2">
                 {packageData.destinations.map((destination) => (
                   <li key={destination.slug}>{destination.name}</li>
@@ -120,7 +130,7 @@ export function PackageDetails({ packageData }: Props) {
 
           {packageData.stay?.length ? (
             <li className="card max-w-full bg-[#F6F6F6]">
-              <h2 className="text-lg font-medium">Choose where to stay</h2>
+              <h2 className="text-lg font-medium">{t("chooseWhereToStay")}</h2>
               <ul className="text-sm tracking-wide list-disc list-inside mt-2">
                 {packageData.stay.map((s) => (
                   <li key={s}>{s}</li>
@@ -131,7 +141,7 @@ export function PackageDetails({ packageData }: Props) {
 
           {packageData.ivDrips?.length ? (
             <li className="card max-w-full bg-[#F6F6F6]">
-              <h2 className="text-lg font-medium">IV-Drip Treatments</h2>
+              <h2 className="text-lg font-medium">{t("ivDripTreatments")}</h2>
               <ul className="text-sm tracking-wide list-disc list-inside mt-2">
                 {packageData.ivDrips.map((drip) => (
                   <li key={drip}>{drip}</li>
@@ -144,10 +154,7 @@ export function PackageDetails({ packageData }: Props) {
 
       <section className="container mx-auto py-20 max-md:py-8 px-4 flex flex-col items-center justify-center gap-10">
         <p className="tracking-wide text-center text-pretty max-w-180">
-          Designed for newlyweds or couples marking a special milestone, this
-          journey is fully personalized to reflect each partner’s unique
-          essence. For those seeking deeper emotional connection, optional
-          counseling sessions can be added upon request.
+          {t("ctaDescription")}
         </p>
 
         <a
@@ -157,7 +164,7 @@ export function PackageDetails({ packageData }: Props) {
         >
           <button className="btn btn-accent text-base font-semibold">
             <Phone fill="currentColor" size={16} className="me-1" />
-            Request a Call
+            {tCommon("requestCall")}
           </button>
         </a>
       </section>

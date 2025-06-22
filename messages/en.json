@@ -1,13 +1,56 @@
 {
   "HomePage": {
     "title": "Healing & Wellness Retreats in Jordan",
-    "services": "Our Services",
-    "packages": "Our Packages",
-    "about": "Go to the about page"
+    "servicesTitle": "Our Services",
+    "packagesTitle": "Our Packages",
+    "about": "Go to the about page",
+    "groups": {
+      "tranquilConnections": "Tranquil Connections",
+      "innerTransformation": "Inner Transformation",
+      "personalEmpowerment": "Personal Empowerment"
+    },
+    "services": {
+      "travelCoordination": {
+        "title": "Travel Coordination & Welcome",
+        "items": {
+          "flightBooking": "Full booking of flight tickets",
+          "vipPickup": "VIP airport pick-up service with a private car",
+          "internalTransfers": "Internal transfers between all activities and sites included in the package"
+        }
+      },
+      "accommodation": {
+        "title": "Accommodation of Your Choice",
+        "items": {
+          "luxury": "Luxury serviced apartments or boutique hotels",
+          "privateLodgings": "Private lodgings with a natural or rustic touch",
+          "privateShared": "Private or shared rooms arranged upon request"
+        }
+      },
+      "healingMeditation": {
+        "title": "Healing & Meditation Sessions",
+        "items": {
+          "individualGroup": "Individual or group meditation sessions",
+          "horseGuided": "Horse-guided intuitive (telepathy) experiences",
+          "soundTherapy": "Sound therapy, float therapy, Reiki, chakra work, and conscious breathing",
+          "psychological": "Psychological support sessions with specialists, available upon request"
+        }
+      },
+      "authenticNature": {
+        "title": "Authentic Nature Experience",
+        "items": {
+          "excursions": "Mountain and desert excursions",
+          "silentNights": "Silent nights beneath the stars",
+          "selfDiscovery": "Self-discovery activities, creative writing, and artistic workshops",
+          "localCommunities": "Interaction with local communities and traditional culinary experiences"
+        }
+      }
+    }
   },
   "Navigation": {
     "home": "Home",
     "about": "About",
+    "howWeWork": "How we work",
+    "healingJourneys": "Healing Journeys",
     "faq": "FAQ",
     "contact": "Contact",
     "packages": "Packages",
@@ -19,15 +62,95 @@
     "languages": {
       "en": "English",
       "ar": "العربية"
-    }
+    },
+    "changingLanguage": "Changing language..."
   },
   "Common": {
     "explore": "Explore",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
     "requestCall": "Request a Call",
+    "requestCustomOffer": "Request a Custom Offer",
+    "joinUsToday": "Join Us Today",
+    "startYourJourney": "Start Your Journey",
     "days": "Days",
-    "people": "People"
+    "people": "People",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "ContactPage": {
+    "title": "Get in Touch",
+    "description": "Got a question or want to learn more? Fill out the form and we'll get back to you soon!",
+    "form": {
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Phone",
+      "submitButton": "Contact Us"
+    }
+  },
+  "AboutPage": {
+    "whatIsIVDrip": {
+      "title": "What is an IV Drip?",
+      "feature1": "Our medical-grade intravenous therapy delivers essential vitamins, minerals, and hydration directly into your bloodstream — for instant results.",
+      "feature2": "Each session is led by licensed medical professionals using sterile equipment in a calm, comfortable setting.",
+      "feature3": "Boost your energy, hydrate deeply, and feel renewed."
+    },
+    "whatYoullFeel": {
+      "title": "What You'll Feel",
+      "feel1": "Restored energy & mental clarity",
+      "feel2": "Hydration after travel or sun exposure",
+      "feel3": "Boost your energy, hydrate deeply, and feel renewed.",
+      "feel4": "Tailored cocktails based on your needs"
+    },
+    "includedInStay": {
+      "title": "Included in Your Stay",
+      "description": "All IV sessions are part of your retreat experience. Stay in our handpicked wellness residences near the Red Sea or Dead Sea, combining comfort with healing."
+    },
+    "cta": {
+      "title": "Ready to refresh your body and mind?",
+      "description": "[Reserve Your Spot] — Limited availability per retreat date."
+    }
+  },
+  "FAQPage": {
+    "title": "Frequently Asked Questions"
+  },
+  "Footer": {
+    "frequentlyAskedQuestions": "Frequently Asked Questions"
+  },
+  "PackageDetails": {
+    "tourProgram": "Tour Program",
+    "healingActivities": "Healing Activities",
+    "choosePlace": "Choose a Place",
+    "chooseWhereToStay": "Choose where to stay",
+    "ivDripTreatments": "IV-Drip Treatments",
+    "ctaDescription": "Designed for newlyweds or couples marking a special milestone, this journey is fully personalized to reflect each partner's unique essence. For those seeking deeper emotional connection, optional counseling sessions can be added upon request."
+  },
+  "Metadata": {
+    "home": {
+      "title": "Saif | Healing & Wellness Retreats in Jordan",
+      "description": "Discover Saif's unique healing retreats, IV therapy, and wellness experiences across Jordan's most beautiful destinations."
+    },
+    "about": {
+      "title": "About Saif | IV Drip & Wellness Retreats",
+      "description": "Learn about Saif's medical-grade IV therapy, wellness philosophy, and what makes our healing retreats in Jordan unique."
+    },
+    "contact": {
+      "title": "Contact Us | Saif Travel and Tourism",
+      "description": "Get in touch with Saif for questions, bookings, or more information about our wellness retreats and travel experiences in Jordan."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions | Saif Travel and Tourism",
+      "description": "Find answers to common questions about Saif's IV therapy, wellness retreats, and travel services in Jordan."
+    },
+    "packages": {
+      "title": "Retreat Packages | Saif Travel and Tourism",
+      "description": "Explore Saif's curated wellness and healing retreat packages, each designed for unique journeys across Jordan."
+    },
+    "root": {
+      "title": "Saif | Travel and Tourism",
+      "description": "Discover the best of Jordan's tourism with a focus on healing and wellness."
+    }
   },
   "chips": {
     "nature": "Nature",

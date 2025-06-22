@@ -7,6 +7,7 @@ import logo from "@/assets/images/logo.svg";
 import { Phone, Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "@/shared/language-switcher";
 import { Retreat } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
   children?: React.ReactNode;
@@ -18,6 +19,8 @@ export function Header({ children, retreats }: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("Navigation");
+  const tCommon = useTranslations("Common");
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
@@ -42,7 +45,7 @@ export function Header({ children, retreats }: Props) {
         <ul className="hidden md:flex items-center gap-8 mx-auto translate-x-24 rtl:-translate-x-24">
           <li>
             <Link href="/" className="font-medium hover:underline transition">
-              Home
+              {t("home")}
             </Link>
           </li>
           <li>
@@ -50,7 +53,7 @@ export function Header({ children, retreats }: Props) {
               href="/about"
               className="font-medium hover:underline transition"
             >
-              How we work
+              {t("howWeWork")}
             </Link>
           </li>
           <li className="relative">
@@ -66,7 +69,7 @@ export function Header({ children, retreats }: Props) {
                 tabIndex={0}
                 type="button"
               >
-                Healing Journeys
+                {t("healingJourneys")}
                 <svg
                   className="w-4 h-4 ml-1"
                   fill="none"
@@ -121,7 +124,7 @@ export function Header({ children, retreats }: Props) {
             >
               <button className="btn btn-accent text-base font-semibold">
                 <Phone fill="currentColor" size={16} className="me-1" />
-                Request a Call
+                {tCommon("requestCall")}
               </button>
             </a>
           </div>
@@ -184,7 +187,7 @@ export function Header({ children, retreats }: Props) {
               className="block py-2 font-medium rounded hover:bg-accent/20 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Home
+              {t("home")}
             </Link>
           </li>
           <li>
@@ -193,7 +196,7 @@ export function Header({ children, retreats }: Props) {
               className="block py-2 font-medium rounded hover:bg-accent/20 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
-              How we work
+              {t("howWeWork")}
             </Link>
           </li>
           <li>
@@ -205,7 +208,7 @@ export function Header({ children, retreats }: Props) {
               onClick={() => setMobileDropdownOpen((open) => !open)}
               type="button"
             >
-              <span>Healing Journeys</span>
+              <span>{t("healingJourneys")}</span>
               <svg
                 className={`w-4 h-4 ml-2 transition-transform ${
                   mobileDropdownOpen ? "rotate-180" : ""
@@ -263,7 +266,7 @@ export function Header({ children, retreats }: Props) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Phone fill="currentColor" size={16} className="me-1" />
-              Request a Call
+              {tCommon("requestCall")}
             </button>
           </a>
         </div>

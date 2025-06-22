@@ -1,4 +1,4 @@
-import { Package } from "../types";
+import { Chip, Package } from "../types";
 import { MediaMapper } from "./media-mapper";
 import { PackageApiResource } from "../types/api-responses";
 
@@ -10,7 +10,7 @@ export class PackageMapper {
       name: packageName,
       slug: data.attributes.slug,
       description: data.attributes.description,
-      chips: data.attributes.chips || [],
+      chips: (data.attributes.chips || []) as Chip[],
       goal: data.attributes.goal,
       duration: data.attributes.durations,
       program: data.attributes.program,
@@ -30,7 +30,10 @@ export class PackageMapper {
         data.relationships.media?.images,
         packageName,
       ),
-      cover: MediaMapper.mapCover(data.relationships.media?.cover, packageName),
+      cover: MediaMapper.mapCover(
+        data.relationships.media?.images?.[0],
+        packageName,
+      ),
       tags: data.attributes.tags || [],
     };
   }

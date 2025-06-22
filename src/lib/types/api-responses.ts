@@ -15,13 +15,6 @@ export interface ApiCollectionResponse<T> {
     total?: number;
     [key: string]: any;
   };
-  links?: {
-    first?: string;
-    last?: string;
-    next?: string;
-    prev?: string;
-    [key: string]: string;
-  };
 }
 
 export interface ApiAttributes {
@@ -69,10 +62,10 @@ export interface PackageApiResource extends ApiResource {
     goal: string;
     durations: number;
     durationsDays: string;
-    program: string;
-    activities: string;
-    stay: string;
-    ivDrips: string;
+    program: string[];
+    activities: string[];
+    stay: string[];
+    ivDrips: string[];
     status: {
       value: string;
       label: string;

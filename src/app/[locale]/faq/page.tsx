@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import FaqList from "./components/faq-list";
 import { FaqRepoFactory } from "@/lib/factory/faq-repo-factory";
 
-export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Saif Travel and Tourism",
-  description:
-    "Find answers to common questions about Saif's IV therapy, wellness retreats, and travel services in Jordan.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("faq.title"),
+    description: t("faq.description"),
+  };
+}
 
 export default async function Faq({
   params,

@@ -7,7 +7,7 @@ export class DestinationMapper {
     return {
       name: data.attributes.name,
       slug: data.attributes.slug,
-      packagesCount: data.meta.packagesCount,
+      packagesCount: data.meta.packagesCount ?? 0,
       images: MediaMapper.mapImages(
         data.relationships.media.images,
         data.attributes.name,

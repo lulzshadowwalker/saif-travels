@@ -21,7 +21,13 @@ export type Package = {
   tags: string[];
 };
 
-type Chip = "yoga";
+export type Chip =
+  | "nature"
+  | "meditation"
+  | "adventure"
+  | "explore"
+  | "honeymoon"
+  | "yoga";
 
 type Day = number;
 

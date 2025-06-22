@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Faq } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
   faqs: Faq[];
@@ -10,6 +11,7 @@ type Props = {
 
 export default function FaqList({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState(0);
+  const t = useTranslations("FAQPage");
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -18,7 +20,7 @@ export default function FaqList({ faqs }: Props) {
   return (
     <main className="container mx-auto my-22 max-md:my-8 px-4">
       <h1 className="text-[2.5rem] font-semibold mb-14 max-md:mb-7 text-balance">
-        Frequently Asked Questions
+        {t("title")}
       </h1>
 
       <ul className="space-y-8">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getLocale, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { PackageDetails } from "./components/package-details";
 import { PackageRepoFactory } from "@/lib/factory/package-repo-factory";
 import { notFound } from "next/navigation";
@@ -20,11 +21,19 @@ export async function generateStaticParams({
   );
 }
 
-export const metadata: Metadata = {
-  title: "Retreat Packages | Saif Travel and Tourism",
-  description:
-    "Explore Saif's curated wellness and healing retreat packages, each designed for unique journeys across Jordan.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("packages.title"),
+    description: t("packages.description"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;

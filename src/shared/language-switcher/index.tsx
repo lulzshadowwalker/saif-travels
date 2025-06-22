@@ -4,12 +4,14 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { useTransition } from "react";
 import { Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
+  const t = useTranslations("LanguageSwitcher");
 
   const handleLanguageChange = (newLocale: string) => {
     startTransition(() => {
@@ -41,9 +43,7 @@ export function LanguageSwitcher() {
             } ${isPending ? "opacity-50 cursor-wait" : ""}`}
           >
             <span>English</span>
-            {locale === "en" && (
-              <span className="text-accent">✓</span>
-            )}
+            {locale === "en" && <span className="text-accent">✓</span>}
           </button>
           <button
             onClick={() => handleLanguageChange("ar")}
@@ -55,9 +55,7 @@ export function LanguageSwitcher() {
             } ${isPending ? "opacity-50 cursor-wait" : ""}`}
           >
             <span>العربية</span>
-            {locale === "ar" && (
-              <span className="text-accent">✓</span>
-            )}
+            {locale === "ar" && <span className="text-accent">✓</span>}
           </button>
         </div>
       </div>
@@ -67,7 +65,9 @@ export function LanguageSwitcher() {
         <div className="fixed inset-0 bg-black/20 z-[100] flex items-center justify-center">
           <div className="bg-white rounded-lg px-4 py-3 shadow-lg flex items-center gap-3">
             <div className="animate-spin rounded-full h-5 w-5 border-2 border-gray-200 border-t-accent"></div>
-            <span className="text-sm text-gray-700">Changing language...</span>
+            <span className="text-sm text-gray-700">
+              {t("changingLanguage")}
+            </span>
           </div>
         </div>
       )}

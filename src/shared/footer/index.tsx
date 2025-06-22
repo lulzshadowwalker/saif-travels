@@ -1,14 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import { Link } from "@/i18n/navigation";
 import { X, Phone, Mail, MessageCircle } from "lucide-react";
 import { Retreat } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
   retreats: Retreat[];
 };
 
 export function Footer({ retreats }: Props) {
+  const t = useTranslations("Navigation");
+  const tFooter = useTranslations("Footer");
+
   return (
     <footer className="bg-primary text-primary-content py-22 max-md:py-8">
       <div className="container mx-auto px-4">
@@ -43,13 +49,13 @@ export function Footer({ retreats }: Props) {
           <div className="mb-8 md:mb-0">
             <nav className="flex flex-col gap-4">
               <Link href="#" className="hover:underline transition">
-                How we work
+                {t("howWeWork")}
               </Link>
               <Link href="/contact" className="hover:underline transition">
-                Contact Us
+                {t("contact")}
               </Link>
               <Link href="/faq" className="hover:underline transition">
-                Frequently Asked Questions
+                {tFooter("frequentlyAskedQuestions")}
               </Link>
             </nav>
           </div>

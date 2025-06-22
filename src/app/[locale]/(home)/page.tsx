@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Hero } from "./components/hero";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { Cta } from "./components/cta";
 import { Scheherazade_New } from "next/font/google";
-
-export const metadata: Metadata = {
-  title: "Saif | Healing & Wellness Retreats in Jordan",
-  description:
-    "Discover Saif's unique healing retreats, IV therapy, and wellness experiences across Jordan's most beautiful destinations.",
-};
 
 // Import service sample images
 import serviceSample1 from "@/assets/images/service-sample-1.png";
@@ -26,14 +21,30 @@ const font = Scheherazade_New({
   weight: ["400", "500", "700"],
 });
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("home.title"),
+    description: t("home.description"),
+  };
+}
+
 export default async function Home({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  // Enable static rendering
   const locale = (await params).locale;
   setRequestLocale(locale);
+
+  const t = await getTranslations("HomePage");
+  const tCommon = await getTranslations("Common");
 
   const retreats = await RetreatRepoFactory.create().list(locale);
 
@@ -43,11 +54,11 @@ export default async function Home({
 
       <section className="container mx-auto px-4">
         <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
-          Our Services
+          {t("servicesTitle")}
         </h2>
 
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {services().map(({ title, elements, image }, idx) => (
+          {(await services()).map(({ title, elements, image }, idx) => (
             <li key={title}>
               <div className="relative py-6 px-3 rounded-box overflow-hidden group h-85">
                 {/* Background Image */}
@@ -83,7 +94,7 @@ export default async function Home({
 
       <section className="container mx-auto px-4">
         <h2 className={`text-4xl font-semibold mb-14 mt-20 ${font.className}`}>
-          Our Packages
+          {t("packagesTitle")}
         </h2>
         {retreats.map((retreat) => (
           <div key={retreat.name} className="mb-16">
@@ -160,7 +171,7 @@ export default async function Home({
                     className="mt-auto max-md:mt-14"
                   >
                     <button className="btn btn-accent max-w-37 w-full">
-                      Explore
+                      {tCommon("explore")}
                     </button>
                   </Link>
                 </li>
@@ -175,43 +186,45 @@ export default async function Home({
   );
 }
 
-function services() {
+async function services() {
+  const t = await getTranslations("HomePage.services");
+
   return [
     {
-      title: "Travel Coordination & Welcome",
+      title: t("travelCoordination.title"),
       elements: [
-        "Full booking of flight tickets",
-        "VIP airport pick-up service with a private car",
-        "Internal transfers between all activities and sites included in the package",
+        t("travelCoordination.items.flightBooking"),
+        t("travelCoordination.items.vipPickup"),
+        t("travelCoordination.items.internalTransfers"),
       ],
       image: serviceSample1,
     },
     {
-      title: "Accommodation of Your Choice",
+      title: t("accommodation.title"),
       elements: [
-        "Luxury serviced apartments or boutique hotels",
-        "Private lodgings with a natural or rustic touch",
-        "Private or shared rooms arranged upon request",
+        t("accommodation.items.luxury"),
+        t("accommodation.items.privateLodgings"),
+        t("accommodation.items.privateShared"),
       ],
       image: serviceSample2,
     },
     {
-      title: "Healing & Meditation Sessions",
+      title: t("healingMeditation.title"),
       elements: [
-        "Individual or group meditation sessions",
-        "Horse-guided intuitive (telepathy) experiences",
-        "Sound therapy, float therapy, Reiki, chakra work, and conscious breathing",
-        "Psychological support sessions with specialists, available upon request",
+        t("healingMeditation.items.individualGroup"),
+        t("healingMeditation.items.horseGuided"),
+        t("healingMeditation.items.soundTherapy"),
+        t("healingMeditation.items.psychological"),
       ],
       image: serviceSample3,
     },
     {
-      title: "Authentic Nature Experience",
+      title: t("authenticNature.title"),
       elements: [
-        "Mountain and desert excursions",
-        "Silent nights beneath the stars",
-        "Self-discovery activities, creative writing, and artistic workshops",
-        "Interaction with local communities and traditional culinary experiences",
+        t("authenticNature.items.excursions"),
+        t("authenticNature.items.silentNights"),
+        t("authenticNature.items.selfDiscovery"),
+        t("authenticNature.items.localCommunities"),
       ],
       image: serviceSample4,
     },
