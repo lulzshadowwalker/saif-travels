@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "admin.jo-saif.com",
+      },
+      {
+        protocol: "https",
         hostname: "saif-backend.test",
       },
     ],
