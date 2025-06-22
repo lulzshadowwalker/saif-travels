@@ -19,16 +19,20 @@ export function Cta() {
         alt="Man swimming in the dead sea"
         fill
         className="object-cover"
+        priority
+        sizes="100vw"
       />
 
       <div className="absolute inset-0 bg-black/42" />
 
-      <div className="absolute inset-0 max-w-222 mx-auto flex items-center justify-between px-4">
-        <h2 className="text-4xl font-bold text-white">
+      <div className="absolute inset-0 max-w-222 mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 px-4 md:px-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center md:text-left mb-4 md:mb-0">
           {tCommon("joinUsToday")}
         </h2>
 
-        <TypeformPopupTrigger />
+        <div className="w-full md:w-auto flex justify-center">
+          <TypeformPopupTrigger />
+        </div>
       </div>
     </div>
   );
@@ -42,7 +46,7 @@ function TypeformPopupTrigger() {
     <>
       <PopupButton
         id={typeformId}
-        className="btn btn-accent text-base font-semibold"
+        className="btn btn-accent text-base font-semibold w-full md:w-auto"
       >
         <SparklesIcon fill="currentColor" size={16} className="me-1" />
         {tCommon("requestCustomOffer")}

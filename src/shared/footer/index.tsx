@@ -20,7 +20,7 @@ export function Footer({ retreats }: Props) {
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between md:items-start">
           {/* Logo */}
-          <div className="mb-8 md:mb-0 flex-shrink-0 flex items-center">
+          <div className="mb-4 md:mb-0 flex-shrink-0 flex items-center">
             <Image
               src={logo}
               alt="Logo"

@@ -141,11 +141,12 @@ export function Header({ children, retreats }: Props) {
 
       {/* Mobile Nav Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/60 transition-opacity duration-300 ${
+        className={`fixed top-0 left-0 bottom-0 z-40 bg-black/60 transition-opacity duration-300 ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
+        style={{ right: "20%" }}
         aria-hidden={!mobileMenuOpen}
         onClick={() => setMobileMenuOpen(false)}
       />
