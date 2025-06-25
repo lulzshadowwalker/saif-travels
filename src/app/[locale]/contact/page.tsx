@@ -91,6 +91,7 @@ export default async function Contact({
               {tCommon("phone")}
             </label>
             <input
+              dir={locale === "ar" ? "rtl" : "ltr"}
               id="phone"
               type="tel"
               className="w-full p-3 border border-gray-300 rounded-lg bg-white
